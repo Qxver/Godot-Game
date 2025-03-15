@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://m2ep0lc6bckb"]
+[gd_scene load_steps=11 format=3 uid="uid://dbgqk7a3fu54m"]
 
+[ext_resource type="Script" uid="uid://dv68lrmir0cbx" path="res://player.gd" id="1_0bb2n"]
 [ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_4flbx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
@@ -56,12 +57,13 @@ animations = [{
 radius = 6.08276
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0bb2n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -7)
 sprite_frames = SubResource("SpriteFrames_dw050")
-frame = 3
-frame_progress = 0.0420608
+frame = 5
+frame_progress = 0.332691
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
 position = Vector2(0, 1)
