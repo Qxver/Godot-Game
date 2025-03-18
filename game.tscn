@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=2 format=3 uid="uid://bn4csbnsdia41"]
+
+[ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
 
 [node name="Game" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -164.0
+offset_top = -93.0
+offset_right = 168.0
+offset_bottom = 92.0
+color = Color(0, 0.552941, 0.223529, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
+zoom = Vector2(3.5, 3.5)
+
+[node name="Player" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(1, 0)
