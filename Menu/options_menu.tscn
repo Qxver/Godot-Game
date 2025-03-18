@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://biq8hfac8yrrh"]
+
+[ext_resource type="Script" uid="uid://clx8k8tfuwtfs" path="res://Menu/options_menu.gd" id="1_lbr8e"]
+[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Menu/menu_background.jpg" id="2_8xge3"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lbr8e")
+metadata/_edit_horizontal_guides_ = [180.0]
+metadata/_edit_vertical_guides_ = [320.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 144.0
+offset_right = 341.0
+offset_bottom = 184.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+z_index = 1
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="menu_background" type="Sprite2D" parent="."]
+position = Vector2(319, 180)
+scale = Vector2(0.91261, 0.884176)
+texture = ExtResource("2_8xge3")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
