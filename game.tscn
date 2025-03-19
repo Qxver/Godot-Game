@@ -1,24 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=4 format=3 uid="uid://bn4csbnsdia41"]
 
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://j4yg3a3xnqem" path="res://Assets/grass_carried.png" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://s35ivu24r64k" path="res://Menu/pause_menu.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -96.0
-offset_top = -56.0
-offset_right = 236.0
-offset_bottom = 129.0
-scale = Vector2(0.568362, 0.581228)
-color = Color(0, 0.552941, 0.223529, 1)
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25024.5
+offset_top = -25146.5
+offset_right = 25024.5
+offset_bottom = 25146.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_feb5d")
+stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(1, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3.5, 3.5)
+position = Vector2(-2, -9)
+zoom = Vector2(2.5, 2.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_e2o6t")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
