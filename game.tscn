@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=5 format=3 uid="uid://bn4csbnsdia41"]
 
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://j4yg3a3xnqem" path="res://Assets/grass_carried.png" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://s35ivu24r64k" path="res://Menu/pause_menu.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://0yc3abmiyyqy" path="res://orc.tscn" id="3_fc0e3"]
 
 [node name="Game" type="Node2D"]
 
@@ -29,6 +30,9 @@ position = Vector2(1, 0)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-2, -9)
 zoom = Vector2(2.5, 2.5)
+
+[node name="Orc" parent="." instance=ExtResource("3_fc0e3")]
+position = Vector2(-111, -56)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
