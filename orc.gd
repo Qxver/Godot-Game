@@ -7,6 +7,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 50
+	velocity = direction * 40
 	move_and_slide()
 	
