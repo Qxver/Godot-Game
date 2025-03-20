@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bin1pb680cfao"]
+
+[ext_resource type="Script" uid="uid://tp6wxb88bg5e" path="res://Attacks/bow.gd" id="1_2of8d"]
+[ext_resource type="Texture2D" uid="uid://dbbr2y63mihra" path="res://Assets/Arrow(Projectile)/Arrow01(100x100).png" id="2_t7xuw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn3s2"]
+size = Vector2(20, 9)
+
+[node name="Bow" type="Area2D"]
+top_level = true
+position = Vector2(-3, -2)
+collision_layer = 4
+script = ExtResource("1_2of8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t7xuw")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qn3s2")
+
+[node name="Duration" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
