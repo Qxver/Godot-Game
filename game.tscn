@@ -1,22 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=6 format=3 uid="uid://bn4csbnsdia41"]
 
+[ext_resource type="Script" uid="uid://o1y4w3y10ep" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://j4yg3a3xnqem" path="res://Assets/grass_carried.png" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://s35ivu24r64k" path="res://Menu/pause_menu.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://0yc3abmiyyqy" path="res://orc.tscn" id="3_fc0e3"]
+
+[sub_resource type="Curve2D" id="Curve2D_fc0e3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -163, -110, 0, 0, 0, 0, 159.938, -111, 0, 0, 0, 0, 159.938, 90, 0, 0, 0, 0, -164, 92, 0, 0, 0, 0, -163, -110)
+}
+point_count = 5
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_7jktm")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -50
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25024.5
-offset_top = -25146.5
-offset_right = 25024.5
-offset_bottom = 25146.5
+offset_left = -25238.0
+offset_top = -25326.0
+offset_right = 24705.0
+offset_bottom = 24967.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -31,11 +42,24 @@ position = Vector2(1, 0)
 position = Vector2(-2, -9)
 zoom = Vector2(2.5, 2.5)
 
-[node name="Orc" parent="." instance=ExtResource("3_fc0e3")]
-position = Vector2(-111, -56)
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(1.5625, 7.62939e-06)
+scale = Vector2(1.01563, 1)
+curve = SubResource("Curve2D_fc0e3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-163, -110)
+rotation = -0.00309658
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_e2o6t")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -5,6 +5,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * 100 # character speed
 	move_and_slide()
 	
+	# animation
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
 		$AnimatedSprite2D.play("walk")
 		if Input.is_action_pressed("move_left"):
