@@ -50,7 +50,7 @@ curve = SubResource("Curve2D_fc0e3")
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-163, -110)
-rotation = -0.00309658
+rotation = -0.00309656
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
