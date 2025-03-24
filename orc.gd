@@ -1,20 +1,18 @@
 extends CharacterBody2D
 
 var player
+var damage = 5.0  # mob damage
 
 func _ready() -> void:
 	player = get_node("/root/Game/Player")
 	$AnimatedSprite2D.play("walk")
-		
+	add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 40  # mob speed
-	
 	if player:
-		var direction2 = (player.global_position.x - global_position.x)
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * 40  # mob speed
 		
-		if abs(direction2) > 5:
-			velocity.x = sign(direction2) * 40
-			$AnimatedSprite2D.flip_h = direction2 < 0
-			move_and_slide()
+		$AnimatedSprite2D.flip_h = direction.x < 0  # flip sprite
+		
+		move_and_slide()

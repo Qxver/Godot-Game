@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+signal health_depleted
+var health = 100.0  # player health
+
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") # character movement
-	velocity = direction * 100 # character speed
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")  # player movement
+	velocity = direction * 100  # player speed
 	move_and_slide()
 	
 	# animation
@@ -15,3 +18,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("idle")
 		
+	var overlapping_mobs = %HealthBox.get_overlapping_bodies()
+	for mob in overlapping_mobs:
+		if mob.is_in_group("enemies"):
+			health -= mob.damage
+			%ProgressBar.value = health
+			if health <= 0.0:
+				health_depleted.emit()
