@@ -124,9 +124,6 @@ script/source = "extends AnimatedSprite2D
 [sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
 radius = 6.08276
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
-radius = 9.05539
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
 bg_color = Color(0.141233, 0.117052, 0.100584, 0.992157)
 corner_radius_top_left = 8
@@ -142,6 +139,8 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0bb2n")
@@ -162,11 +161,6 @@ unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthBox"]
-position = Vector2(-1, -8)
-shape = SubResource("CircleShape2D_i3pqv")
-debug_color = Color(0.718656, 0, 0.258317, 0.42)
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = -10.0
@@ -178,3 +172,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
 value = 100.0
 show_percentage = false
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="BowTimer" type="Timer" parent="Attack"]
+
+[node name="BowAttackTimer" type="Timer" parent="Attack/BowTimer"]
+
+[node name="EnemyDetection" type="Area2D" parent="."]
+position = Vector2(-1, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetection"]
+scale = Vector2(15, 15)
+shape = SubResource("CircleShape2D_i3pqv")
+
+[connection signal="timeout" from="Attack/BowTimer" to="." method="_on_bow_timer_timeout"]
+[connection signal="timeout" from="Attack/BowTimer/BowAttackTimer" to="." method="_on_bow_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetection" to="." method="_on_enemy_detection_body_entered"]
+[connection signal="body_exited" from="EnemyDetection" to="." method="_on_enemy_detection_body_exited"]

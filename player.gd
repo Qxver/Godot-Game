@@ -1,5 +1,46 @@
 extends CharacterBody2D
 
+#Bow starting weapon
+var bow = preload("res://Attacks/bow.tscn")
+@onready var  BowTimer=get_node("Attack/BowTimer")#Reloading time
+@onready var BowAttackTimer=get_node("Attack/BowTimer/BowAttackTimer") #AttackTime
+var BowAttackSpeed=1.5
+var BowAmmo=0
+var BowBaseAmmo=1
+#Enemy related
+var enemy_close=[]
+
+func _ready():
+	attack()
+
+func attack():
+	BowTimer.wait_time=BowAttackSpeed
+	if BowTimer.is_stopped():
+		BowTimer.start()
+		
+func getRandomTarget():
+	if enemy_close.size()>0:
+		return enemy_close.pick_random().global_position
+	else:
+		return Vector2.UP
+	
+
+func _on_bow_timer_timeout():
+	BowAmmo=BowBaseAmmo
+	BowAttackTimer.start()
+	
+func _on_bow_attack_timer_timeout():
+	if BowAmmo>0:
+		var BowAttack= bow.instantiate()
+		BowAttack.global_position = global_position
+		BowAttack.target=Vector2.UP
+		add_child(BowAttack)
+		BowAmmo-=1
+		if BowAmmo > 0:
+			BowAttackTimer.start()
+		else :
+			BowAttackTimer.stop()
+
 signal health_depleted
 var health = 100.0  # player health
 
@@ -25,3 +66,14 @@ func _physics_process(delta: float) -> void:
 			%ProgressBar.value = health
 			if health <= 0.0:
 				health_depleted.emit()
+
+
+
+func _on_enemy_detection_body_entered(body: Node2D):
+	if not enemy_close.has(body):
+		enemy_close.append(body)
+
+
+func _on_enemy_detection_body_exited(body: Node2D):
+	if enemy_close.has(body):
+		enemy_close.erase(body)
