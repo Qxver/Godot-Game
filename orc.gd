@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var player
 var damage = 5.0  # mob damage
+var health = 30.0  # mob health
 
 func _ready() -> void:
 	player = get_node("/root/Game/Player")

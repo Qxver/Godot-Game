@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dbgqk7a3fu54m"]
+[gd_scene load_steps=25 format=3 uid="uid://dbgqk7a3fu54m"]
 
 [ext_resource type="Script" uid="uid://b67fmjvhekpbx" path="res://player.gd" id="1_0bb2n"]
 [ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_4flbx"]
@@ -124,6 +124,9 @@ script/source = "extends AnimatedSprite2D
 [sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
 radius = 6.08276
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
+radius = 9.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
 bg_color = Color(0.141233, 0.117052, 0.100584, 0.992157)
 corner_radius_top_left = 8
@@ -143,6 +146,7 @@ anti_aliasing = false
 [sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_0bb2n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -160,6 +164,11 @@ shape = SubResource("CircleShape2D_b26j0")
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthBox"]
+position = Vector2(-1, -9)
+shape = SubResource("CircleShape2D_hqtel")
+debug_color = Color(0.992157, 0, 0.180392, 0.419608)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true

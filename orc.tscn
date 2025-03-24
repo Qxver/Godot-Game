@@ -119,6 +119,7 @@ animations = [{
 radius = 6.0
 
 [node name="Orc" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_kapy6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
