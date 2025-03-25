@@ -42,6 +42,19 @@ position = Vector2(1, 0)
 position = Vector2(-2, -9)
 zoom = Vector2(2.5, 2.5)
 
+[node name="Label" type="Label" parent="Player/Camera2D"]
+unique_name_in_owner = true
+offset_left = -44.0
+offset_top = -76.0
+offset_right = 47.0
+offset_bottom = -53.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Player/Camera2D/Label"]
+autostart = true
+
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(1.5625, 7.62939e-06)
 scale = Vector2(1.01563, 1)
@@ -58,8 +71,9 @@ rotation = -0.00309656
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerMobSpawn" type="Timer" parent="."]
 unique_name_in_owner = true
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/Camera2D/Label/Timer" to="." method="_on_timer_timeout2"]
+[connection signal="timeout" from="TimerMobSpawn" to="." method="_on_timer_timeout"]

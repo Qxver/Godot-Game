@@ -60,13 +60,12 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 		
 		
-func _process(delta):		
+func _process(delta) -> void:		
 	var overlapping_mobs = %HealthBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
 		for mob in overlapping_mobs:
 			if mob.is_in_group("enemies"):
 				health 	-= mob.damage * delta
-		print("Health:", health)
 		%ProgressBar.value = health
 		if health <= 0:
 			health_depleted.emit()
