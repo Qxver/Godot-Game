@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var player
-var damage = 5.0  # mob damage
+var damage = 30.0  # mob damage
 var health = 30.0  # mob health
 
 func _ready() -> void:
