@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0yc3abmiyyqy"]
+[gd_scene load_steps=21 format=3 uid="uid://0yc3abmiyyqy"]
 
 [ext_resource type="Texture2D" uid="uid://cn008dvuvaii4" path="res://Assets/Characters(100x100)/Orc/Orc/Orc-Idle.png" id="1_4gyqm"]
 [ext_resource type="Script" uid="uid://cu11rkfbyelbp" path="res://orc.gd" id="1_kapy6"]
@@ -118,6 +118,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kapy6"]
 radius = 6.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hc3a"]
+
 [node name="Orc" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_kapy6")
@@ -130,3 +132,16 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_kapy6")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+light_mask = 5
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_6hc3a")
+debug_color = Color(0.625291, 0.663003, 0.576079, 0.42)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

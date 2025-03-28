@@ -17,3 +17,15 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = direction.x < 0  # flip sprite
 		
 		move_and_slide()
+
+
+func _on_hurt_box_area_entered(area: Area2D):
+	if area.is_in_group("Attacks"):
+		var weapondamage=area.DealDamage()
+		hurt(weapondamage)
+
+func hurt(weapondamage):
+	health-=weapondamage
+	if health<=0:
+		queue_free()
+	
