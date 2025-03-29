@@ -4,11 +4,12 @@ extends CharacterBody2D
 var bow = preload("res://Attacks/bow.tscn")
 @onready var  BowTimer=get_node("Attack/BowTimer")#Reloading time
 @onready var BowAttackTimer=get_node("Attack/BowTimer/BowAttackTimer") #AttackTime
-var BowAttackSpeed=1.5
+var BowAttackSpeed=1
 var BowAmmo=0
-var BowBaseAmmo=1
+var BowBaseAmmo=3
+
 #Enemy related
-var enemy_close=[]
+var enemy_close: Array=[] #Array of all enemies in detection zone
 
 func _ready():
 	attack()
@@ -18,12 +19,17 @@ func attack():
 	if BowTimer.is_stopped():
 		BowTimer.start()
 		
-func getRandomTarget():
-	if enemy_close.size()>0:
-		return enemy_close.pick_random().global_position
-	else:
+func GetClosestTarget():
+	if enemy_close.size()==0:
 		return Vector2.UP
-	
+	var closest_enemy=null
+	var min_distance=INF
+	for enemy in enemy_close:
+		var distance = global_position.distance_to(enemy.global_position)
+		if min_distance > distance:
+			min_distance=distance
+			closest_enemy=enemy
+	return global_position.direction_to(closest_enemy.global_position)
 
 func _on_bow_timer_timeout():
 	BowAmmo=BowBaseAmmo
@@ -33,13 +39,30 @@ func _on_bow_attack_timer_timeout():
 	if BowAmmo>0:
 		var BowAttack= bow.instantiate()
 		BowAttack.global_position = global_position
-		BowAttack.target=Vector2.UP
+		BowAttack.target=GetClosestTarget()
+		debug_draw_line(BowAttack.target)
 		add_child(BowAttack)
 		BowAmmo-=1
 		if BowAmmo > 0:
 			BowAttackTimer.start()
 		else :
 			BowAttackTimer.stop()
+
+#Adding enemies to enemy_close
+func _on_enemy_detection_body_entered(body: Node2D):
+	if body.is_in_group("enemies"):
+		if not enemy_close.has(body):
+			enemy_close.append(body)
+
+#Deleting enemies from enemy_close
+func _on_enemy_detection_body_exited(body: Node2D):
+	if body.is_in_group("enemies"):
+		if enemy_close.has(body):
+			enemy_close.erase(body)
+
+func debug_draw_line(targer):
+	var canvas = get_canvas_item()
+	RenderingServer.canvas_item_add_line(canvas, Vector2.ZERO, targer * 50, Color.RED)
 
 signal health_depleted
 var health = 100.0  # player health
@@ -69,13 +92,3 @@ func _process(delta) -> void:
 		%ProgressBar.value = health
 		if health <= 0:
 			health_depleted.emit()
-
-
-func _on_enemy_detection_body_entered(body: Node2D):
-	if not enemy_close.has(body):
-		enemy_close.append(body)
-
-
-func _on_enemy_detection_body_exited(body: Node2D):
-	if enemy_close.has(body):
-		enemy_close.erase(body)
