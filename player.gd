@@ -40,7 +40,6 @@ func _on_bow_attack_timer_timeout():
 		var BowAttack= bow.instantiate()
 		BowAttack.global_position = global_position
 		BowAttack.target=GetClosestTarget()
-		debug_draw_line(BowAttack.target)
 		add_child(BowAttack)
 		BowAmmo-=1
 		if BowAmmo > 0:
@@ -60,9 +59,6 @@ func _on_enemy_detection_body_exited(body: Node2D):
 		if enemy_close.has(body):
 			enemy_close.erase(body)
 
-func debug_draw_line(targer):
-	var canvas = get_canvas_item()
-	RenderingServer.canvas_item_add_line(canvas, Vector2.ZERO, targer * 50, Color.RED)
 
 signal health_depleted
 var health = 100.0  # player health
