@@ -30,3 +30,7 @@ func _physics_process(delta: float) -> void:
 		if time_passed >= 10:
 			time_passed = 0
 			%TimerMobSpawn.wait_time -= 0.1
+
+
+func _on_player_health_depleted() -> void:
+	$CanvasLayer/GameOver.pause()

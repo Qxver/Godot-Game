@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=7 format=3 uid="uid://bn4csbnsdia41"]
 
 [ext_resource type="Script" uid="uid://o1y4w3y10ep" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://j4yg3a3xnqem" path="res://Assets/grass_carried.png" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://s35ivu24r64k" path="res://Menu/pause_menu.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://dx0mlok2sg2tj" path="res://Menu/game_over.tscn" id="5_7jktm"]
 
 [sub_resource type="Curve2D" id="Curve2D_fc0e3"]
 _data = {
@@ -68,6 +69,8 @@ rotation = -0.00309656
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("5_7jktm")]
+
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_e2o6t")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -76,5 +79,6 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 autostart = true
 
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Player/Camera2D/Label/Timer" to="." method="_on_timer_timeout2"]
 [connection signal="timeout" from="TimerMobSpawn" to="." method="_on_timer_timeout"]

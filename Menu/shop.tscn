@@ -43,5 +43,5 @@ position = Vector2(319, 180)
 scale = Vector2(0.91261, 0.884176)
 texture = ExtResource("2_dlrev")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
