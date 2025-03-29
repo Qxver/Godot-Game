@@ -1,5 +1,4 @@
 extends Area2D
-
 #Weapon stats
 var level = 1
 var pierce = 1 
@@ -9,18 +8,17 @@ var attacksize = 1.0
 
 #Aiming stats
 var target = Vector2.ZERO
-var angle = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
 #setting rotation to enemy
 func _ready() -> void:
-	angle = global_position.direction_to(target)
-	rotation = angle.angle() + deg_to_rad(180)	
+	add_to_group("Attacks")
+	rotation = target.angle() + deg_to_rad(180)	
 
 #moving projectiles
 func _physics_process(delta) -> void:
-		global_position += angle * speed * delta
+	global_position += target * speed * delta
 
 #Deleting projectiles after hitting enough enemies
 func enemy_hit() -> void:
