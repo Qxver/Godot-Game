@@ -53,6 +53,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="Player/Camera2D/Label"]
+unique_name_in_owner = true
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="Player"]
