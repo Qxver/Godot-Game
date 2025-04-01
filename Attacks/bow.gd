@@ -3,7 +3,7 @@ extends Area2D
 var level = 1
 var pierce = 1 
 var speed = 100
-var damage = 60
+var damage = 30
 var attacksize = 1.0
 
 #Aiming stats
