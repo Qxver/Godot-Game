@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+#Player related
+var speed = 100
+
 #Bow starting weapon
 var bow = preload("res://Attacks/bow.tscn")
 @onready var  BowTimer=get_node("Attack/BowTimer")#Reloading time
@@ -7,6 +10,11 @@ var bow = preload("res://Attacks/bow.tscn")
 var BowAttackSpeed=1
 var BowAmmo=0
 var BowBaseAmmo=3
+
+#Level/Exp related
+var level=1
+var exp: float = 0.0
+var exp_to_next_level: float =1000
 
 #Enemy related
 var enemy_close: Array=[] #Array of all enemies in detection zone
@@ -59,13 +67,24 @@ func _on_enemy_detection_body_exited(body: Node2D):
 		if enemy_close.has(body):
 			enemy_close.erase(body)
 
+func level_up(): 
+	exp-=exp_to_next_level
+	exp_to_next_level*=1.1
+	speed+=100	 #number just to test
+
+func get_exp(enemy_exp):
+	exp+=enemy_exp
+	if exp>exp_to_next_level:
+		level_up()
+	%ExpBar.value=exp/exp_to_next_level
+
 
 signal health_depleted
 var health = 100.0  # player health
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")  # player movement
-	velocity = direction * 100  # player speed
+	velocity = direction * speed  # player speed
 	move_and_slide()
 	
 	# animation
