@@ -121,6 +121,7 @@ radius = 6.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hc3a"]
 
 [node name="Orc" type="CharacterBody2D"]
+top_level = true
 motion_mode = 1
 script = ExtResource("1_kapy6")
 
