@@ -1,7 +1,8 @@
 extends Area2D
 
-var item_type
+signal collected
 
+# item collection
 func _on_body_entered(body: Node2D) -> void:
-	print("Coin picked up.")
+	emit_signal("collected")
 	queue_free()

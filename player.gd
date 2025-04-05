@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 #Player related
 var speed = 100
+var health = 100.0  # player health
+signal health_depleted
 
 #Bow starting weapon
 var bow = preload("res://Attacks/bow.tscn")
@@ -78,10 +80,6 @@ func get_exp(enemy_exp):
 		level_up()
 	%ExpBar.value=exp/exp_to_next_level
 
-
-signal health_depleted
-var health = 100.0  # player health
-
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")  # player movement
 	velocity = direction * speed  # player speed
@@ -104,6 +102,6 @@ func _process(delta) -> void:
 		for mob in overlapping_mobs:
 			if mob.is_in_group("enemies"):
 				health 	-= mob.damage * delta
-		%ProgressBar.value = health
+		%HealthBar.value = health
 		if health <= 0:
 			health_depleted.emit()
