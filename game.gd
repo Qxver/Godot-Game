@@ -53,6 +53,10 @@ func coin_label():
 func health_changed(new_health):
 	health_bar.value = new_health
 	
-
+#Game over screen
 func _on_player_health_depleted() -> void:
-	$CanvasLayer/GameOver.pause()
+	$Menus/GameOver.pause()
+
+#Level up screen
+func _on_player_levelup() -> void:
+	$Menus/LevelUP.pause()

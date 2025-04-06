@@ -4,6 +4,8 @@ extends CharacterBody2D
 var speed = 100
 var health = 100.0  # player health
 signal health_depleted
+signal levelup
+
 
 #Bow starting weapon
 var bow = preload("res://Attacks/bow.tscn")
@@ -72,7 +74,7 @@ func _on_enemy_detection_body_exited(body: Node2D):
 func level_up(): 
 	exp-=exp_to_next_level
 	exp_to_next_level*=1.1
-	speed+=100	 #number just to test
+	levelup.emit()
 
 func get_exp(enemy_exp):
 	exp+=enemy_exp
