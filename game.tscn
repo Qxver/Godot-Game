@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=10 format=3 uid="uid://bn4csbnsdia41"]
 
 [ext_resource type="Script" uid="uid://o1y4w3y10ep" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://s35ivu24r64k" path="res://Menu/pause_menu.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://c4l77rolbi8o2" path="res://Item.tscn" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dx0mlok2sg2tj" path="res://Menu/game_over.tscn" id="5_7jktm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
+bg_color = Color(0.141176, 0.117647, 0.101961, 0.992157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
+bg_color = Color(0.733333, 0.152941, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_fc0e3"]
 _data = {
@@ -44,6 +50,18 @@ position = Vector2(1, 0)
 position = Vector2(-2, -9)
 zoom = Vector2(2.5, 2.5)
 
+[node name="HealthBar" type="ProgressBar" parent="Player/Camera2D"]
+unique_name_in_owner = true
+offset_left = 82.0
+offset_top = -70.0
+offset_right = 262.0
+offset_bottom = -47.0
+scale = Vector2(0.25, 0.25)
+theme_override_styles/background = SubResource("StyleBoxFlat_ryrav")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eow3j")
+value = 100.0
+show_percentage = false
+
 [node name="TimeLabel" type="Label" parent="Player/Camera2D"]
 unique_name_in_owner = true
 offset_left = -44.0
@@ -58,16 +76,17 @@ vertical_alignment = 1
 unique_name_in_owner = true
 autostart = true
 
-[node name="Item" parent="Player/Camera2D" instance=ExtResource("4_ryrav")]
-position = Vector2(125, -61)
+[node name="Coin" parent="Player/Camera2D" instance=ExtResource("4_ryrav")]
+position = Vector2(125, -44)
 
 [node name="CoinLabel" type="Label" parent="Player/Camera2D"]
 unique_name_in_owner = true
-offset_left = 76.0
-offset_top = -67.0
-offset_right = 168.0
-offset_bottom = -44.0
+offset_left = 75.0
+offset_top = -50.0
+offset_right = 167.0
+offset_bottom = -27.0
 scale = Vector2(0.5, 0.5)
+text = "1"
 horizontal_alignment = 2
 
 [node name="Path2D" type="Path2D" parent="Player"]
@@ -91,8 +110,6 @@ size_flags_vertical = 4
 [node name="TimerMobSpawn" type="Timer" parent="."]
 unique_name_in_owner = true
 autostart = true
-
-[node name="Item" parent="." instance=ExtResource("4_ryrav")]
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Player/Camera2D/TimeLabel/Timer" to="." method="_on_timer_timeout2"]
