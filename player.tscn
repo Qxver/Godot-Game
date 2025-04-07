@@ -196,7 +196,6 @@ show_percentage = false
 [node name="BowTimer" type="Timer" parent="Attack"]
 
 [node name="BowAttackTimer" type="Timer" parent="Attack/BowTimer"]
-wait_time = 0.75
 
 [node name="EnemyDetection" type="Area2D" parent="."]
 visible = false

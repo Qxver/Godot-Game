@@ -6,7 +6,6 @@ var health = 100.0  # player health
 signal health_depleted
 signal levelup
 
-
 #Bow starting weapon
 var bow = preload("res://Attacks/bow.tscn")
 @onready var  BowTimer=get_node("Attack/BowTimer")#Reloading time
@@ -107,3 +106,9 @@ func _process(delta) -> void:
 		%HealthBar.value = health
 		if health <= 0:
 			health_depleted.emit()
+			
+func _on_level_up_hp_up() -> void:
+	health += 10
+	
+func _on_level_up_as_up() -> void:
+	BowAttackTimer.wait_time -= 0.05

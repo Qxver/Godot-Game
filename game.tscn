@@ -118,4 +118,6 @@ autostart = true
 [connection signal="levelup" from="Player" to="." method="_on_player_levelup"]
 [connection signal="timeout" from="Player/Camera2D/TimeLabel/Timer" to="." method="_on_timer_timeout2"]
 [connection signal="collected" from="Player/Camera2D/Coin" to="." method="_on_coin_collected"]
+[connection signal="as_up" from="Menus/LevelUP" to="Player" method="_on_level_up_as_up"]
+[connection signal="hp_up" from="Menus/LevelUP" to="Player" method="_on_level_up_hp_up"]
 [connection signal="timeout" from="TimerMobSpawn" to="." method="_on_timer_timeout"]

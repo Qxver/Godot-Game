@@ -56,7 +56,6 @@ func _on_player_health_depleted() -> void:
 func _on_player_levelup() -> void:
 	$Menus/LevelUP.pause()
 
-
 func _on_coin_collected() -> void:
 	coins += 1
 	coin_label()
