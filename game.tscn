@@ -117,4 +117,5 @@ autostart = true
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="levelup" from="Player" to="." method="_on_player_levelup"]
 [connection signal="timeout" from="Player/Camera2D/TimeLabel/Timer" to="." method="_on_timer_timeout2"]
+[connection signal="collected" from="Player/Camera2D/Coin" to="." method="_on_coin_collected"]
 [connection signal="timeout" from="TimerMobSpawn" to="." method="_on_timer_timeout"]

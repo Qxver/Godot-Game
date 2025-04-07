@@ -36,16 +36,11 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	%TimeLabel.set_text("0:00")
 	var item = item_scene.instantiate()
-	item.collected.connect(_on_item_collected)
 	coin_label()
 	
 	player.health_depleted.connect(health_changed)
 	health_bar.max_value = player.health
 	health_bar.value = player.health
-
-func _on_item_collected():
-	coins += 1
-	coin_label()
 	
 func coin_label():
 	%CoinLabel.text = str(coins)
@@ -60,3 +55,8 @@ func _on_player_health_depleted() -> void:
 #Level up screen
 func _on_player_levelup() -> void:
 	$Menus/LevelUP.pause()
+
+
+func _on_coin_collected() -> void:
+	coins += 1
+	coin_label()
