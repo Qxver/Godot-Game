@@ -182,15 +182,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
 value = 100.0
 show_percentage = false
 
-[node name="ExpBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-offset_left = -10.0
-offset_top = 2.0
-offset_right = 10.0
-offset_bottom = 6.0
-max_value = 1.0
-show_percentage = false
-
 [node name="Attack" type="Node2D" parent="."]
 
 [node name="BowTimer" type="Timer" parent="Attack"]

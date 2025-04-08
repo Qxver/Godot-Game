@@ -79,7 +79,6 @@ func get_exp(enemy_exp):
 	exp+=enemy_exp
 	if exp>exp_to_next_level:
 		level_up()
-	%ExpBar.value=exp/exp_to_next_level
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")  # player movement
