@@ -1,9 +1,6 @@
 extends Control
 
-signal dmg_up
 signal as_up
-signal hp_up
-
 
 func _ready():
 	hide()
@@ -21,7 +18,7 @@ func pause():
 	$AnimationPlayer.play("blur")
 	
 func _on_damage_button_down() -> void:
-	dmg_up.emit()
+	PlayerStats.damage += 10
 	resume()
 
 func _on_attack_speed_button_down() -> void:
@@ -29,5 +26,5 @@ func _on_attack_speed_button_down() -> void:
 	resume()
 
 func _on_health_button_down() -> void:
-	hp_up.emit()
+	PlayerStats.health += 10
 	resume()

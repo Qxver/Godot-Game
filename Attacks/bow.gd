@@ -3,7 +3,7 @@ extends Area2D
 var level = 1
 var pierce = 1 
 var speed = 100
-var damage = 30
+var damage_multiplier = 1
 var attacksize = 1.0
 
 #Aiming stats
@@ -28,7 +28,7 @@ func enemy_hit() -> void:
 
 func DealDamage():
 	enemy_hit()
-	return damage
+	return PlayerStats.damage*damage_multiplier
 
 #Deleting projectiles after some time
 func _on_duration_timeout() -> void: 

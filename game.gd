@@ -39,8 +39,8 @@ func _ready() -> void:
 	coin_label()
 	
 	player.health_depleted.connect(health_changed)
-	health_bar.max_value = player.health
-	health_bar.value = player.health
+	health_bar.max_value = PlayerStats.max_hp
+	health_bar.value = PlayerStats.health
 	
 func coin_label():
 	%CoinLabel.text = str(coins)

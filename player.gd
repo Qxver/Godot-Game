@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #Player related
 var speed = 100
-var health = 100.0  # player health
+var damage = 30
 signal health_depleted
 signal levelup
 
@@ -102,13 +102,10 @@ func _process(delta) -> void:
 	if overlapping_mobs.size() > 0:
 		for mob in overlapping_mobs:
 			if mob.is_in_group("enemies"):
-				health 	-= mob.damage * delta
-		%HealthBar.value = health
-		if health <= 0:
+				PlayerStats.health 	-= mob.damage * delta
+		%HealthBar.value = PlayerStats.health
+		if PlayerStats.health <= 0:
 			health_depleted.emit()
 			
-func _on_level_up_hp_up() -> void:
-	health += 10
-	
 func _on_level_up_as_up() -> void:
 	BowAttackTimer.wait_time -= 0.05
