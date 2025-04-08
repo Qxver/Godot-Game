@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 #Player related
 var speed = 100
-var damage = 30
 signal health_depleted
 signal levelup
 

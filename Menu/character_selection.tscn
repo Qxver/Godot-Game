@@ -1,13 +1,160 @@
-[gd_scene load_steps=7 format=3 uid="uid://baucv1kavpslh"]
+[gd_scene load_steps=25 format=3 uid="uid://cfpfd81vfaxec"]
 
-[ext_resource type="Script" uid="uid://bnyjaa6wwfxin" path="res://Menu/pause_menu.gd" id="1_edh8k"]
+[ext_resource type="Script" uid="uid://vcbqumwi4knx" path="res://Menu/character_selection.gd" id="1_edh8k"]
 [ext_resource type="Shader" uid="uid://dj5shm1fmp5yv" path="res://Menu/pause_menu.gdshader" id="2_5ofxg"]
+[ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="3_nic03"]
+[ext_resource type="Texture2D" uid="uid://0xtjw0fyn7yt" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="4_6hb31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
 shader = ExtResource("2_5ofxg")
 shader_parameter/lod = 0.0
 
-[sub_resource type="Animation" id="Animation_qxtyl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("3_nic03")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("3_nic03")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("3_nic03")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("3_nic03")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("3_nic03")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("3_nic03")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
+atlas = ExtResource("4_6hb31")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nic03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivps1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urp6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwjto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_606se")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_6hb31"]
+script/source = "extends AnimatedSprite2D
+
+	
+"
+
+[sub_resource type="Animation" id="Animation_nic03"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6hb31"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,41 +181,13 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_tv8f1"]
-resource_name = "blur"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.825]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qxtyl"]
 _data = {
-&"RESET": SubResource("Animation_qxtyl"),
-&"blur": SubResource("Animation_tv8f1")
+&"RESET": SubResource("Animation_6hb31"),
+&"blur": SubResource("Animation_nic03")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="CharacterSelection" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -88,6 +207,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -97,41 +217,129 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -73.0
-offset_right = 53.0
-offset_bottom = 73.0
+offset_left = -190.0
+offset_top = -100.0
+offset_right = 190.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Resume"
+alignment = 1
 
-[node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="soldier" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-disabled = true
-text = "Options"
 
-[node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/soldier"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 20
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer/soldier/VBoxContainer"]
+position = Vector2(50, 50)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nic03")
+animation = &"idle"
+autoplay = "idle"
+script = SubResource("GDScript_6hb31")
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/soldier/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "HP: 100
+DMG: 30
+SPEED: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/Button"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer2/Button/VBoxContainer"]
+modulate = Color(0.0505108, 0.0505108, 0.0505108, 1)
+position = Vector2(50, 50)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nic03")
+animation = &"idle"
+autoplay = "idle"
+script = SubResource("GDScript_6hb31")
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/Button/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "HP: ???
+DMG: ??
+SPEED: ???"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer3/Button"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 102.0
+offset_bottom = 149.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer3/Button/VBoxContainer"]
+modulate = Color(0.0505108, 0.0505108, 0.0505108, 1)
+position = Vector2(50, 50)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nic03")
+animation = &"idle"
+autoplay = "idle"
+script = SubResource("GDScript_6hb31")
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3/Button/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "HP: ???
+DMG: ??
+SPEED: ???"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_qxtyl")
 }
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/soldier" to="." method="_on_soldier_button_down"]
