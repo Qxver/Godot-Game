@@ -2,8 +2,7 @@ extends Node2D
 
 var coins = 0
 var item_scene = preload("res://Item.tscn")
-@onready var health_bar = %HealthBar
-@onready var player = get_node("Player")
+
 # spawn enemy randomly on path2D set outside of player's vision
 func spawn_enemy() -> void:
 	var enemy = preload("res://orc.tscn").instantiate()
@@ -31,22 +30,20 @@ func _physics_process(delta: float) -> void:
 		if time_passed >= 10:
 			time_passed = 0
 			%TimerMobSpawn.wait_time -= 0.1
+	%HealthBar.value = PlayerStats.health
+	var player = get_node("Player")
+	%ExpBar.max_value = player.exp_to_next_level
+	%ExpBar.value = player.exp
+	
 			
 			
 func _ready() -> void:
 	%TimeLabel.set_text("0:00")
 	var item = item_scene.instantiate()
-	coin_label()
-	
-	player.health_depleted.connect(health_changed)
-	health_bar.max_value = PlayerStats.max_hp
-	health_bar.value = PlayerStats.health
+	coin_label() 
 	
 func coin_label():
 	%CoinLabel.text = str(coins)
-	
-func health_changed(new_health):
-	health_bar.value = new_health
 	
 #Game over screen
 func _on_player_health_depleted() -> void:
@@ -56,6 +53,7 @@ func _on_player_health_depleted() -> void:
 func _on_player_levelup() -> void:
 	$Menus/LevelUP.pause()
 
+# update coin value
 func _on_coin_collected() -> void:
 	coins += 1
 	coin_label()

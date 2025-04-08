@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=12 format=3 uid="uid://bn4csbnsdia41"]
 
 [ext_resource type="Script" uid="uid://o1y4w3y10ep" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
@@ -10,9 +10,17 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
 bg_color = Color(0.141176, 0.117647, 0.101961, 0.992157)
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
 bg_color = Color(0.733333, 0.152941, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
+bg_color = Color(0, 0.764706, 0.25098, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_fc0e3"]
 _data = {
@@ -61,6 +69,17 @@ scale = Vector2(0.25, 0.25)
 theme_override_styles/background = SubResource("StyleBoxFlat_ryrav")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eow3j")
 value = 100.0
+
+[node name="ExpBar" type="ProgressBar" parent="Player/Camera2D"]
+unique_name_in_owner = true
+offset_left = 82.0
+offset_top = -59.0
+offset_right = 262.0
+offset_bottom = -36.0
+scale = Vector2(0.25, 0.25)
+theme_override_styles/background = SubResource("StyleBoxFlat_ryrav")
+theme_override_styles/fill = SubResource("StyleBoxFlat_j5wjh")
+max_value = 1000.0
 show_percentage = false
 
 [node name="TimeLabel" type="Label" parent="Player/Camera2D"]
@@ -78,16 +97,16 @@ unique_name_in_owner = true
 autostart = true
 
 [node name="Coin" parent="Player/Camera2D" instance=ExtResource("4_ryrav")]
-position = Vector2(125, -44)
+position = Vector2(125, -46)
 
 [node name="CoinLabel" type="Label" parent="Player/Camera2D"]
 unique_name_in_owner = true
-offset_left = 75.0
-offset_top = -50.0
-offset_right = 167.0
-offset_bottom = -27.0
+offset_left = 76.0
+offset_top = -52.0
+offset_right = 168.0
+offset_bottom = -29.0
 scale = Vector2(0.5, 0.5)
-text = "1"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Path2D" type="Path2D" parent="Player"]

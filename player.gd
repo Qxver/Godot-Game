@@ -17,7 +17,7 @@ var BowBaseAmmo=3
 #Level/Exp related
 var level=1
 var exp: float = 0.0
-var exp_to_next_level: float =1000
+var exp_to_next_level: float = 1000
 
 #Enemy related
 var enemy_close: Array=[] #Array of all enemies in detection zone
