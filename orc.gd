@@ -1,6 +1,8 @@
 extends CharacterBody2D
-
+@export var hit_flash_color: Color = Color(3,3,3)
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var game = get_node("/root/Game")
+var original_color: Color 
 
 var item_scene = preload("res://Item.tscn")
 var player
@@ -13,6 +15,7 @@ func _ready() -> void:
 	player = get_node("/root/Game/Player")
 	$AnimatedSprite2D.play("walk")
 	add_to_group("enemies")  # enemies group
+	original_color = $AnimatedSprite2D.modulate
 
 func _physics_process(delta: float) -> void:
 	if player:
@@ -31,6 +34,7 @@ func _on_hurt_box_area_entered(area: Area2D):
 
 func hurt(weapondamage):
 	health -= weapondamage
+	flash_white()
 	if health <= 0:
 		queue_free()
 		die()
@@ -39,6 +43,14 @@ func die():
 	alive = false
 	drop_item()
 	player.get_exp(exp)
+	
+func flash_white():
+	$AnimatedSprite2D.modulate = hit_flash_color 
+	var timer = get_tree().create_timer(0.1)
+	timer.timeout.connect(_restore_color)	
+	
+func _restore_color():
+	$AnimatedSprite2D.modulate = original_color  
 	
 # item drops
 func drop_item():
