@@ -72,6 +72,7 @@ func _on_enemy_detection_body_exited(body: Node2D):
 func level_up(): 
 	exp-=exp_to_next_level
 	exp_to_next_level*=1.1
+	level += 1
 	levelup.emit()
 
 func get_exp(enemy_exp):

@@ -30,15 +30,21 @@ func _physics_process(delta: float) -> void:
 		if time_passed >= 10:
 			time_passed = 0
 			%TimerMobSpawn.wait_time -= 0.1
+			
+	# health and exp bar
 	%HealthBar.value = PlayerStats.health
 	var player = get_node("Player")
 	%ExpBar.max_value = player.exp_to_next_level
 	%ExpBar.value = player.exp
-	
+	%ExpLabel.text = "Level " + str(player.level)
+	%HealthLabel.text = str(int(PlayerStats.health)) + "/" + str(int(PlayerStats.max_hp))
 			
 			
 func _ready() -> void:
 	%TimeLabel.set_text("0:00")
+	%ExpLabel.text = "Level 1"
+	%HealthLabel.text = str(int(PlayerStats.health)) + "/" + str(int(PlayerStats.max_hp))
+	
 	var item = item_scene.instantiate()
 	coin_label() 
 	
