@@ -4,15 +4,24 @@ var coins = 0
 var item_scene = preload("res://Item.tscn")
 
 # spawn enemy randomly on path2D set outside of player's vision
-func spawn_enemy() -> void:
-	var enemy = preload("res://orc.tscn").instantiate()
+func spawn_orc() -> void:
+	var orc = preload("res://Enemies/orc.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
-	enemy.global_position = %PathFollow2D.global_position
-	add_child(enemy)
+	orc.global_position = %PathFollow2D.global_position
+	add_child(orc)
+	
+func spawn_elite() -> void:
+	var elite = preload("res://Enemies/orc_elite.tscn").instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	elite.global_position = %PathFollow2D.global_position
+	add_child(elite)
 
 # spawn enemy timer
-func _on_timer_timeout() -> void:
-	spawn_enemy()
+func _on_timer_mob_spawn_timeout() -> void:
+	spawn_orc()
+	
+func _on_timer_elite_spawn_timeout() -> void:
+	spawn_elite()
 
 # screen timer
 var elapsed_time: int= 0  # time (seconds)

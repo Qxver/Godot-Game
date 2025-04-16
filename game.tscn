@@ -168,9 +168,15 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 autostart = true
 
+[node name="TimerEliteSpawn" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 30.0
+autostart = true
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="levelup" from="Player" to="." method="_on_player_levelup"]
 [connection signal="timeout" from="Player/Camera2D/TimeLabel/Timer" to="." method="_on_timer_timeout2"]
 [connection signal="collected" from="Player/Camera2D/Coin" to="." method="_on_coin_collected"]
 [connection signal="as_up" from="Menus/LevelUP" to="Player" method="_on_level_up_as_up"]
-[connection signal="timeout" from="TimerMobSpawn" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerMobSpawn" to="." method="_on_timer_mob_spawn_timeout"]
+[connection signal="timeout" from="TimerEliteSpawn" to="." method="_on_timer_elite_spawn_timeout"]

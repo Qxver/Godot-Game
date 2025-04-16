@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://0yc3abmiyyqy"]
 
 [ext_resource type="Texture2D" uid="uid://cn008dvuvaii4" path="res://Assets/Characters(100x100)/Orc/Orc/Orc-Idle.png" id="1_4gyqm"]
-[ext_resource type="Script" uid="uid://cu11rkfbyelbp" path="res://orc.gd" id="1_kapy6"]
+[ext_resource type="Script" uid="uid://cu11rkfbyelbp" path="res://Enemies/orc.gd" id="1_kapy6"]
 [ext_resource type="Texture2D" uid="uid://b1miwqfoiejgc" path="res://Assets/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="2_qi2p4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
@@ -116,9 +116,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kapy6"]
-radius = 6.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hc3a"]
+radius = 11.0
 
 [node name="Orc" type="CharacterBody2D"]
 top_level = true
@@ -131,7 +132,7 @@ sprite_frames = SubResource("SpriteFrames_g2u8i")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_kapy6")
 
 [node name="HurtBox" type="Area2D" parent="."]
