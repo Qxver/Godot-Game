@@ -2,10 +2,10 @@ extends CharacterBody2D
 @export var hit_flash_color: Color = Color(3,3,3)
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var game = get_node("/root/Game")
+@onready var player = get_node("/root/Game/Player")
 var original_color: Color 
 
 var item_scene = preload("res://Item.tscn")
-var player
 var damage = 60.0  # mob damage
 var health = 200.0  # mob health
 var alive : bool = true
@@ -56,6 +56,8 @@ func _restore_color():
 func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
-	item.collected.connect(game._on_coin_collected)
+	item.item_type = randi_range(0, 1)
+	if item.item_type == 0:
+		item.collected.connect(game._on_coin_collected)
 	game.call_deferred("add_child", item)
 	item.add_to_group("items")	

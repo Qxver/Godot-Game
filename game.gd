@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 			
 	# health and exp bar
 	%HealthBar.value = PlayerStats.health
+	%HealthBar.max_value = PlayerStats.max_hp
 	var player = get_node("Player")
 	%ExpBar.max_value = player.exp_to_next_level
 	%ExpBar.value = player.exp

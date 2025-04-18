@@ -26,5 +26,6 @@ func _on_attack_speed_button_down() -> void:
 	resume()
 
 func _on_health_button_down() -> void:
-	PlayerStats.health += 10
+	PlayerStats.max_hp += 20
+	
 	resume()
