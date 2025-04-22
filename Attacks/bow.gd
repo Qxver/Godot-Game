@@ -2,8 +2,8 @@ extends Area2D
 #Weapon stats
 var level = 1
 var pierce = 1 
-var speed = 300
-var damage_multiplier = 2
+var speed = 100
+var damage_multiplier = 1.0
 var attacksize = 1.0
 
 #Aiming stats
