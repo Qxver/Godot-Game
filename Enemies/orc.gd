@@ -55,7 +55,12 @@ func _restore_color():
 func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
-	item.item_type = randi_range(0, 1)
+	var roll_item = randi_range(0, 10)
+	if roll_item in range(0, 8):
+		item.item_type = 0
+	if roll_item in range(9, 10):
+		item.item_type = 1
+		
 	if item.item_type == 0:
 		item.collected.connect(game._on_coin_collected)
 	game.call_deferred("add_child", item)
