@@ -5,13 +5,20 @@ var speed = 100
 signal health_depleted
 signal levelup
 
-#Bow starting weapon
+#Starting weapon
 var bow = preload("res://Attacks/bow.tscn")
 @onready var  BowTimer=get_node("Attack/BowTimer")#Reloading time
 @onready var BowAttackTimer=get_node("Attack/BowTimer/BowAttackTimer") #AttackTime
 var BowAttackSpeed=1
 var BowAmmo=0
 var BowBaseAmmo=3
+
+var bomb = preload("res://Attacks/bomb.tscn")
+@onready var BombTimer=get_node("Attack/BombTimer")#Reloading time
+@onready var BombAttackTimer=get_node("Attack/BombTimer/BombAttackTimer") #AttackTime
+var BombAttackSpeed=1
+var BombAmmo = 0
+var BombBaseAmmo=1
 
 #Level/Exp related
 var level=1
@@ -28,7 +35,10 @@ func attack():
 	BowTimer.wait_time=BowAttackSpeed
 	if BowTimer.is_stopped():
 		BowTimer.start()
-		
+	BombTimer.wait_time=BombAttackSpeed
+	if BombTimer.is_stopped():
+		BombTimer.start()
+	
 func GetClosestTarget():
 	if enemy_close.size()==0:
 		return Vector2.UP
@@ -56,7 +66,25 @@ func _on_bow_attack_timer_timeout():
 			BowAttackTimer.start()
 		else :
 			BowAttackTimer.stop()
-
+			
+	pass # Replace with function body.
+func _on_bomb_timer_timeout() -> void:
+	BombAmmo=BombBaseAmmo
+	BombAttackTimer.start() 
+	
+func _on_bomb_attack_timer_timeout() -> void:
+	if BombAmmo >0:
+		var BombAttack= bomb.instantiate()
+		get_tree().current_scene.add_child(BombAttack)
+		BombAttack.global_position = global_position
+		BombAttack.target=GetClosestTarget()
+		print("Leci bomba")
+		BombAmmo-=1
+		if BombAmmo > 0:
+			BombAttackTimer.start()
+		else :
+			BombAttackTimer.stop()
+	
 #Adding enemies to enemy_close
 func _on_enemy_detection_body_entered(body: Node2D):
 	if body.is_in_group("enemies"):

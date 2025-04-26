@@ -189,6 +189,10 @@ show_percentage = false
 
 [node name="BowAttackTimer" type="Timer" parent="Attack/BowTimer"]
 
+[node name="BombTimer" type="Timer" parent="Attack"]
+
+[node name="BombAttackTimer" type="Timer" parent="Attack/BombTimer"]
+
 [node name="EnemyDetection" type="Area2D" parent="."]
 visible = false
 position = Vector2(-1, -8)
@@ -196,8 +200,11 @@ position = Vector2(-1, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetection"]
 scale = Vector2(15, 15)
 shape = SubResource("CircleShape2D_i3pqv")
+debug_color = Color(0, 0, 0, 0.419608)
 
 [connection signal="timeout" from="Attack/BowTimer" to="." method="_on_bow_timer_timeout"]
 [connection signal="timeout" from="Attack/BowTimer/BowAttackTimer" to="." method="_on_bow_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/BombTimer" to="." method="_on_bomb_timer_timeout"]
+[connection signal="timeout" from="Attack/BombTimer/BombAttackTimer" to="." method="_on_bomb_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetection" to="." method="_on_enemy_detection_body_entered"]
 [connection signal="body_exited" from="EnemyDetection" to="." method="_on_enemy_detection_body_exited"]
