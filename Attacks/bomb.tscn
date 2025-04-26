@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bifehpl75c3kk"]
+
+[ext_resource type="Script" uid="uid://brb1af5kdmyeb" path="res://Attacks/bomb.gd" id="1_6xl18"]
+[ext_resource type="Texture2D" uid="uid://cmtwadks3pc3u" path="res://Assets/Bomb/bobm.png" id="2_ybevx"]
+[ext_resource type="Texture2D" uid="uid://dbuxf2skodt3y" path="res://Assets/Bomb/bobmexp.png" id="3_k8fgw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6vg5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xl18"]
+radius = 40.0
+
+[node name="bomb" type="Area2D"]
+collision_layer = 5
+script = ExtResource("1_6xl18")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ybevx")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_k8fgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d6vg5")
+
+[node name="Explosion" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6xl18")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="BombExplsionTime" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BombExplsionTime" to="." method="_on_bomb_explsion_time_timeout"]
