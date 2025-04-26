@@ -145,5 +145,9 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_6hc3a")
 debug_color = Color(0.625291, 0.663003, 0.576079, 0.42)
 
+[node name="Stun_Duration" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="timeout" from="Stun_Duration" to="." method="_on_stun_duration_timeout"]

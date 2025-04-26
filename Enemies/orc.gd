@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var game = get_node("/root/Game")
 @onready var player = get_node("/root/Game/Player")
 var original_color: Color 
-
+var is_stunned: bool = false
 var item_scene = preload("res://Item.tscn")
 var damage = 30.0  # mob damage
 var health = 60.0  # mob health
@@ -17,6 +17,8 @@ func _ready() -> void:
 	original_color = $AnimatedSprite2D.modulate
 
 func _physics_process(delta: float) -> void:
+	if is_stunned:
+		return
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * 40  # mob speed
@@ -30,6 +32,9 @@ func _on_hurt_box_area_entered(area: Area2D):
 	if area.is_in_group("Attacks"):
 		var weapondamage = area.DealDamage()
 		hurt(weapondamage)
+	if area.is_in_group("Stunners"):
+		var weaponstun = area.stun()	
+		stun(weaponstun)
 
 func hurt(weapondamage):
 	health -= weapondamage
@@ -42,6 +47,15 @@ func die():
 	alive = false
 	drop_item()
 	player.get_exp(exp)
+	
+func stun(weaponstun):
+	if is_stunned:
+		return 
+	is_stunned=true
+	$Stun_Duration.start(weaponstun)
+	
+func _on_stun_duration_timeout() -> void:
+	is_stunned=false
 	
 func flash_white():
 	$AnimatedSprite2D.modulate = hit_flash_color 
