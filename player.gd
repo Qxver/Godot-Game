@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 #Player related
 var speed = 100
+var is_dead = false
 signal health_depleted
 signal levelup
 
@@ -105,13 +106,16 @@ func level_up():
 
 func get_exp(enemy_exp):
 	exp+=enemy_exp
-	if exp>exp_to_next_level:
+	if exp>exp_to_next_level and not is_dead:
 		level_up()
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")  # player movement
 	velocity = direction * speed  # player speed
 	move_and_slide()
+
 	
 	# animation
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
@@ -128,10 +132,14 @@ func _process(delta) -> void:
 	var overlapping_mobs = %HealthBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
 		for mob in overlapping_mobs:
-			if mob.is_in_group("enemies"):
-				PlayerStats.health 	-= mob.damage * delta
+			if mob and is_instance_valid(mob) and mob.is_in_group("enemies") and not is_dead:
+				PlayerStats.health -= mob.damage * delta
+				$AnimatedSprite2D.play("hurt")
 		%HealthBar.value = PlayerStats.health
-		if PlayerStats.health <= 0:
+		if PlayerStats.health <= 0 and not is_dead:
+			is_dead = true
+			$AnimatedSprite2D.play("death")
+			await $AnimatedSprite2D.animation_finished
 			health_depleted.emit()
 			
 func _on_level_up_as_up() -> void:
