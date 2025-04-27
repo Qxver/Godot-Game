@@ -1,7 +1,30 @@
 extends Node2D
 
+@onready var player = get_node("Player")
+
 var coins = 0
 var item_scene = preload("res://Item.tscn")
+var decorations = [
+	preload("res://Assets/Terrain/bushes/Bush_blue_flowers2.png"),
+	preload("res://Assets/Terrain/bushes/Bush_orange_flowers2.png"),
+	preload("res://Assets/Terrain/bushes/Bush_pink_flowers2.png"),
+	preload("res://Assets/Terrain/bushes/Bush_red_flowers2.png"),
+	preload("res://Assets/Terrain/bushes/Bush_simple1_2.png"),
+	preload("res://Assets/Terrain/bushes/Bush_simple2_3.png"),
+	preload("res://Assets/Terrain/bushes/Fern1_2.png"),
+	preload("res://Assets/Terrain/bushes/Fern2_2.png"),
+	preload("res://Assets/Terrain/trees/Broken_tree1.png"),
+	preload("res://Assets/Terrain/trees/Broken_tree2.png"),
+	preload("res://Assets/Terrain/trees/Flower_tree1.png"),
+	preload("res://Assets/Terrain/trees/Flower_tree2.png"),
+	preload("res://Assets/Terrain/trees/Fruit_tree1.png"),
+	preload("res://Assets/Terrain/trees/Moss_tree1.png"),
+	preload("res://Assets/Terrain/trees/Moss_tree3.png"),
+	preload("res://Assets/Terrain/trees/Tree3.png")
+]
+var decoration_distance = 500
+var decoration_spawn_radius = 600
+var placed_positions = []
 
 # spawn enemy randomly on path2D set outside of player's vision
 func spawn_orc() -> void:
@@ -51,12 +74,18 @@ func _physics_process(delta: float) -> void:
 			
 			
 func _ready() -> void:
+	randomize()
 	%TimeLabel.set_text("0:00")
 	%ExpLabel.text = "Level 1"
 	%HealthLabel.text = str(int(PlayerStats.health)) + "/" + str(int(PlayerStats.max_hp))
 	
 	var item = item_scene.instantiate()
 	coin_label() 
+	
+func _process(delta):
+	if decorations.is_empty():
+		return
+	spawn_decorations_near_player()
 	
 func coin_label():
 	%CoinLabel.text = str(coins)
@@ -73,3 +102,27 @@ func _on_player_levelup() -> void:
 func _on_coin_collected() -> void:
 	coins += 1
 	coin_label()
+
+#generating trees and bushes around the player
+func spawn_decorations_near_player():
+	for i in range(3):
+		var random_offset = Vector2(randf_range(-decoration_spawn_radius, decoration_spawn_radius), randf_range(-decoration_spawn_radius, decoration_spawn_radius))
+		var spawn_position = player.global_position + random_offset
+		var too_close = false
+		for pos in placed_positions:
+			if pos.distance_to(spawn_position) < 150:
+				too_close = true
+				break
+		if spawn_position.distance_to(player.global_position) < 150:
+			too_close = true
+		if not too_close:
+			var decoration_texture = decorations[randi() % decorations.size()]
+			var decoration = StaticBody2D.new()
+			var sprite = Sprite2D.new()
+			sprite.texture = decoration_texture
+			sprite.global_position = spawn_position
+			decoration.scale = Vector2(0.6,0.6)
+			decoration.add_child(sprite)
+			decoration.z_index = -1
+			add_child(decoration)
+			placed_positions.append(spawn_position)
