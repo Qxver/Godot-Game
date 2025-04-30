@@ -82,6 +82,7 @@ func _ready() -> void:
 	var item = item_scene.instantiate()
 	coin_label() 
 	
+	
 func _process(delta):
 	if decorations.is_empty():
 		return

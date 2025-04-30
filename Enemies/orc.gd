@@ -71,7 +71,7 @@ func drop_item():
 	item.position = position
 	var roll_item = randi_range(0, 10)
 	if roll_item in range(0, 8):
-		item.item_type = 0
+		item.item_type = 2
 	if roll_item in range(9, 10):
 		item.item_type = 1
 		

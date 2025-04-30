@@ -5,10 +5,13 @@ var item_type: int
 
 var coin = preload("res://Assets/Items/coin_spin-Sheet.png")
 var health_box = preload("res://Assets/Items/health_drop.png")
-var textures = [coin, health_box] # item pool
+var helmet1 = preload("res://Assets/Items/Armour/helmet1.tres")
+var textures = [coin, health_box, helmet1] # item pool
 
 func _ready() -> void:
 	$Sprite2D.texture = textures[item_type]
+	if item_type == 2:
+		$Sprite2D.region_enabled = false
 	if item_type == 1:
 		$Sprite2D.scale = Vector2(0.6, 0.6)
 		$Sprite2D.region_enabled = true
