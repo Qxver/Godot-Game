@@ -2,20 +2,47 @@ extends Area2D
 
 signal collected
 var item_type: int
+var armour_type: int
+var item
 
 var coin = preload("res://Assets/Items/coin_spin-Sheet.png")
 var health_box = preload("res://Assets/Items/health_drop.png")
 var helmet1 = preload("res://Assets/Items/Armour/helmet1.tres")
-var textures = [coin, health_box, helmet1] # item pool
+var helmet2 = preload("res://Assets/Items/Armour/helmet2.tres")
+var helmet3 = preload("res://Assets/Items/Armour/helmet3.tres")
+var helmet4 = preload("res://Assets/Items/Armour/helmet4.tres")
+var chestplate1 = preload("res://Assets/Items/Armour/chestplate1.tres")
+var chestplate2 = preload("res://Assets/Items/Armour/chestplate2.tres")
+var chestplate3 = preload("res://Assets/Items/Armour/chestplate3.tres")
+var chestplate4 = preload("res://Assets/Items/Armour/chestplate4.tres")
+var leggings1 = preload("res://Assets/Items/Armour/leggings1.tres")
+var leggings2 = preload("res://Assets/Items/Armour/leggings2.tres")
+var leggings3 = preload("res://Assets/Items/Armour/leggings3.tres")
+var leggings4 = preload("res://Assets/Items/Armour/leggings4.tres")
+var boots1 = preload("res://Assets/Items/Armour/boots1.tres")
+var boots2 = preload("res://Assets/Items/Armour/boots2.tres")
+var boots3 = preload("res://Assets/Items/Armour/boots3.tres")
+var boots4 = preload("res://Assets/Items/Armour/boots4.tres")
+
+# armor item pools
+var armour1 = [helmet1, chestplate1, leggings1, boots1]
+var armour2 = [helmet2, chestplate2, leggings2, boots2]
+var armour3 = [helmet3, chestplate3, leggings3, boots3]
+var armour4 = [helmet4, chestplate4, leggings4, boots4]
+
+var item_pool = [coin, health_box, armour1, armour2, armour3, armour4] # item pool
 
 func _ready() -> void:
-	$Sprite2D.texture = textures[item_type]
-	if item_type == 2:
+	item = item_pool[item_type]
+	if item is not Array:
+		$Sprite2D.texture = item
+		if item_type == 1:
+			$Sprite2D.scale = Vector2(0.6, 0.6)
+			$Sprite2D.region_enabled = true
+			$Sprite2D.region_rect = Rect2(0, 0, 8, 8)
+	else:
 		$Sprite2D.region_enabled = false
-	if item_type == 1:
-		$Sprite2D.scale = Vector2(0.6, 0.6)
-		$Sprite2D.region_enabled = true
-		$Sprite2D.region_rect = Rect2(0, 0, 8, 8)
+		$Sprite2D.texture = item_pool[item_type][armour_type]
 		
 # item collection
 func _on_body_entered(body: Node2D) -> void:

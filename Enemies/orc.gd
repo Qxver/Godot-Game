@@ -69,11 +69,23 @@ func _restore_color():
 func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
-	var roll_item = randi_range(0, 10)
-	if roll_item in range(0, 8):
-		item.item_type = 2
-	if roll_item in range(9, 10):
+	var roll_item = randi_range(0, 100)
+	if roll_item in range(0, 67):
+		item.item_type = 0
+	elif roll_item in range(68, 88):
 		item.item_type = 1
+	elif roll_item in range(89, 93):
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 2
+	elif roll_item in range(94, 97):
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 3
+	elif roll_item in range(98, 99):
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 4
+	else:
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 5
 		
 	if item.item_type == 0:
 		item.collected.connect(game._on_coin_collected)

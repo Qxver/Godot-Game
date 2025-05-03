@@ -79,7 +79,6 @@ func _on_bomb_attack_timer_timeout() -> void:
 		get_tree().current_scene.add_child(BombAttack)
 		BombAttack.global_position = global_position
 		BombAttack.target=GetClosestTarget()
-		print("Leci bomba")
 		BombAmmo-=1
 		if BombAmmo > 0:
 			BombAttackTimer.start()
