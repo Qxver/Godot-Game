@@ -66,6 +66,7 @@ func _restore_color():
 	$AnimatedSprite2D.modulate = original_color  
 	
 # item drops
+# coin - 68%, heal - 20%, armour1 - 5%, armour2 - 4%, armour3 - 2%, armour4 - 1%
 func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
