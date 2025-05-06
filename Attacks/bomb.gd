@@ -38,7 +38,7 @@ func explosion() -> void:
 	can_move=false
 	damage_multiplier = 0.75
 	$Sprite2D2.visible=true
-	$Explosion.disabled = true
+	$Explosion.call_deferred("set_disabled", true)
 	$BombExplsionTime.start()
 	
 func _on_timer_timeout() -> void:
