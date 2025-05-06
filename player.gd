@@ -142,4 +142,5 @@ func _process(delta) -> void:
 			health_depleted.emit()
 			
 func _on_level_up_as_up() -> void:
-	BowAttackTimer.wait_time -= 0.05
+	BowAttackTimer.wait_time -= 0.5
+	PlayerStats.attack_speed += 15

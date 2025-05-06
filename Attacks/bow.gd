@@ -2,7 +2,6 @@ extends Area2D
 #Weapon stats
 var level = 1
 var pierce = 1 
-var speed = 100
 var damage_multiplier = 1.0
 var attacksize = 1.0
 
@@ -18,7 +17,7 @@ func _ready() -> void:
 
 #moving projectiles
 func _physics_process(delta) -> void:
-	global_position += target * speed * delta
+	global_position += target * PlayerStats.attack_speed * delta
 
 #Deleting projectiles after hitting enough enemies
 func enemy_hit() -> void:

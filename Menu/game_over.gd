@@ -17,6 +17,8 @@ func pause():
 	
 func _on_restart_pressed():
 	resume()
+	PlayerStats.damage = 30
+	PlayerStats.max_hp = 100
 	get_tree().change_scene_to_file("res://game.tscn")
 	
 func _on_main_menu_pressed():
