@@ -12,16 +12,19 @@ func resume():
 	
 func pause():
 	show()
+	InputMap.action_erase_events("esc")
 	get_tree().paused = true
 	$AnimationPlayer.play("go_blur")
 	
 func _on_restart_pressed():
+	InputMap.load_from_project_settings()
 	resume()
 	PlayerStats.damage = 30
 	PlayerStats.max_hp = 100
 	get_tree().change_scene_to_file("res://game.tscn")
 	
 func _on_main_menu_pressed():
+	InputMap.load_from_project_settings()
 	resume()
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")
 

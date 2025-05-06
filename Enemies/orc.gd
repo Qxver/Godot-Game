@@ -71,17 +71,17 @@ func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
 	var roll_item = randi_range(0, 100)
-	if roll_item in range(0, 67):
+	if roll_item in range(0, 68):
 		item.item_type = 0
-	elif roll_item in range(68, 88):
+	elif roll_item in range(68, 89):
 		item.item_type = 1
-	elif roll_item in range(89, 93):
+	elif roll_item in range(89, 94):
 		item.armour_type = randi_range(0, 3)
 		item.item_type = 2
-	elif roll_item in range(94, 97):
+	elif roll_item in range(94, 98):
 		item.armour_type = randi_range(0, 3)
 		item.item_type = 3
-	elif roll_item in range(98, 99):
+	elif roll_item in range(98, 100):
 		item.armour_type = randi_range(0, 3)
 		item.item_type = 4
 	else:

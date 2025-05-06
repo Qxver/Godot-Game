@@ -53,19 +53,19 @@ func _restore_color():
 	$AnimatedSprite2D.modulate = original_color  
 	
 # item drops
-# coin - 10%, heal - 41%, armour1 - 30%, armour2 - 9%, armour3 - 7%, armour4 - 3%
+# coin - 10%, heal - 40%, armour1 - 31%, armour2 - 9%, armour3 - 7%, armour4 - 3%
 func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
 	var roll_item = randi_range(0, 100)
-	if roll_item in range(0, 9):
+	if roll_item in range(0, 10):
 		item.item_type = 0
-	elif roll_item in range(10, 50):
+	elif roll_item in range(10, 51):
 		item.item_type = 1
-	elif roll_item in range(51, 81):
+	elif roll_item in range(51, 82):
 		item.armour_type = randi_range(0, 3)
 		item.item_type = 2
-	elif roll_item in range(82, 90):
+	elif roll_item in range(82, 91):
 		item.armour_type = randi_range(0, 3)
 		item.item_type = 3
 	elif roll_item in range(91, 97):
