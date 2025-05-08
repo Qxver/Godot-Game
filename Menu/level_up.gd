@@ -7,11 +7,11 @@ func _ready():
 	$AnimationPlayer.play("RESET")
 
 func resume():
-	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
 	await $AnimationPlayer.animation_finished
 	hide()
 	InputMap.load_from_project_settings()
+	get_tree().paused = false
 	
 func pause():
 	show()
@@ -29,5 +29,4 @@ func _on_attack_speed_button_down() -> void:
 
 func _on_health_button_down() -> void:
 	PlayerStats.max_hp += 20
-	
 	resume()

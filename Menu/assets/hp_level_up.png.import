@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm6lpb4tccyha"
-path="res://.godot/imported/hp_level_up.png-7b9d585de4c92cb8c40c8dd4c51816d5.ctex"
+path="res://.godot/imported/hp_level_up.png-4d29fe8df4186404adee35b244d3641d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/hp_level_up.png"
-dest_files=["res://.godot/imported/hp_level_up.png-7b9d585de4c92cb8c40c8dd4c51816d5.ctex"]
+source_file="res://Menu/assets/hp_level_up.png"
+dest_files=["res://.godot/imported/hp_level_up.png-4d29fe8df4186404adee35b244d3641d.ctex"]
 
 [params]
 

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://u5vesy70l345" path="res://Menu/level_up.gd" id="1_4af3g"]
 [ext_resource type="Shader" uid="uid://dj5shm1fmp5yv" path="res://Menu/pause_menu.gdshader" id="2_ylrw7"]
-[ext_resource type="Texture2D" uid="uid://d1efegra2d1gv" path="res://Menu/dmg_level_up.png" id="3_1x6oh"]
-[ext_resource type="Texture2D" uid="uid://btbam52jupy60" path="res://Menu/ats_level_up.png" id="4_secp2"]
-[ext_resource type="Texture2D" uid="uid://dm6lpb4tccyha" path="res://Menu/hp_level_up.png" id="5_j1vvt"]
+[ext_resource type="Texture2D" uid="uid://d1efegra2d1gv" path="res://Menu/assets/dmg_level_up.png" id="3_1x6oh"]
+[ext_resource type="Texture2D" uid="uid://btbam52jupy60" path="res://Menu/assets/ats_level_up.png" id="4_secp2"]
+[ext_resource type="Texture2D" uid="uid://dm6lpb4tccyha" path="res://Menu/assets/hp_level_up.png" id="5_j1vvt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
 shader = ExtResource("2_ylrw7")

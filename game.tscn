@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bn4csbnsdia41"]
+[gd_scene load_steps=14 format=3 uid="uid://bn4csbnsdia41"]
 
 [ext_resource type="Script" uid="uid://o1y4w3y10ep" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dbgqk7a3fu54m" path="res://player.tscn" id="1_80nbo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dx0mlok2sg2tj" path="res://Menu/game_over.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://buwmldaxaijao" path="res://Menu/level_up.tscn" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cfpfd81vfaxec" path="res://Menu/character_selection.tscn" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://d4hmqtouiu3qi" path="res://Menu/Inventory/InvUI.tscn" id="9_vef74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
 bg_color = Color(0.141176, 0.117647, 0.101961, 0.992157)
@@ -168,6 +169,8 @@ size_flags_vertical = 4
 [node name="LevelUP" parent="Menus" instance=ExtResource("7_eow3j")]
 
 [node name="CharacterSelection" parent="Menus" instance=ExtResource("8_j5wjh")]
+
+[node name="InvUi" parent="Menus" instance=ExtResource("9_vef74")]
 
 [node name="TimerMobSpawn" type="Timer" parent="."]
 unique_name_in_owner = true
