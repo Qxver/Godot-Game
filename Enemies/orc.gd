@@ -6,7 +6,7 @@ extends CharacterBody2D
 var original_color: Color 
 var is_stunned: bool = false
 var item_scene = preload("res://Item.tscn")
-var damage = 30.0  # mob damage
+var damage = 30.0 * PlayerStats.damage_reduction  # mob damage
 var health = 60.0  # mob health
 var alive : bool = true
 var exp = 600 #mob exp drop
