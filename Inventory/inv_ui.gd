@@ -19,7 +19,7 @@ func pause():
 	InputMap.action_erase_events("esc")
 	%Dmg_val.text = str(PlayerStats.damage)
 	%Ats_val.text = str(PlayerStats.attack_speed)
-	%Hp_val.text = str(PlayerStats.health) + "/" + str(PlayerStats.max_hp)
+	%Hp_val.text = str(int(PlayerStats.health)) + "/" + str(PlayerStats.max_hp)
 	%Def_val.text = str(PlayerStats.defence)
 	update_slots()
 	show()
