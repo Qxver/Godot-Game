@@ -69,4 +69,6 @@ func _on_body_entered(body: Node2D) -> void:
 		PlayerStats.health += 20
 		if PlayerStats.health >= PlayerStats.max_hp:
 			PlayerStats.health = PlayerStats.max_hp
+	else:
+		pass
 	queue_free()

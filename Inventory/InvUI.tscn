@@ -1,0 +1,246 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4hmqtouiu3qi"]
+
+[ext_resource type="Script" uid="uid://sskwaoewx6q0" path="res://Inventory/inv_ui.gd" id="1_ughb5"]
+[ext_resource type="Texture2D" uid="uid://dw5r2dayj38p2" path="res://Assets/Menu_assets/frame.png" id="2_3klia"]
+[ext_resource type="Texture2D" uid="uid://cu7wowh2548t2" path="res://Assets/Menu_assets/dmg.png" id="3_35ghd"]
+[ext_resource type="Texture2D" uid="uid://cph2xij715g3n" path="res://Assets/Menu_assets/ats.png" id="4_epqjb"]
+[ext_resource type="Texture2D" uid="uid://dul2c5rwo8giw" path="res://Assets/Menu_assets/hp.png" id="5_c68me"]
+[ext_resource type="Texture2D" uid="uid://b3ateisudmq2n" path="res://Assets/Menu_assets/def.png" id="6_ig2n5"]
+[ext_resource type="PackedScene" uid="uid://ixbrp0fri5jl" path="res://Inventory/inv_slot.tscn" id="7_35ghd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4euo"]
+font_size = 11
+
+[node name="InvUi" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ughb5")
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 24.0
+offset_right = 193.0
+offset_bottom = 55.0
+text = "X"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.067
+anchor_right = 0.686
+anchor_bottom = 0.92
+offset_left = 0.319992
+offset_top = -0.119997
+offset_right = -63.04
+offset_bottom = -66.2
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.36, 1.2959)
+texture = ExtResource("2_3klia")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Stats" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 171.0
+offset_bottom = 31.0
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Dmg" type="TextureRect" parent="NinePatchRect/Stats"]
+layout_mode = 2
+texture = ExtResource("3_35ghd")
+stretch_mode = 2
+
+[node name="Dmg_val" type="Label" parent="NinePatchRect/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "600"
+label_settings = SubResource("LabelSettings_k4euo")
+
+[node name="Ats" type="TextureRect" parent="NinePatchRect/Stats"]
+layout_mode = 2
+texture = ExtResource("4_epqjb")
+stretch_mode = 2
+
+[node name="Ats_val" type="Label" parent="NinePatchRect/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12"
+label_settings = SubResource("LabelSettings_k4euo")
+
+[node name="Hp" type="TextureRect" parent="NinePatchRect/Stats"]
+layout_mode = 2
+texture = ExtResource("5_c68me")
+stretch_mode = 2
+
+[node name="Hp_val" type="Label" parent="NinePatchRect/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "200/200"
+label_settings = SubResource("LabelSettings_k4euo")
+
+[node name="Def" type="TextureRect" parent="NinePatchRect/Stats"]
+layout_mode = 2
+texture = ExtResource("6_ig2n5")
+stretch_mode = 2
+
+[node name="Def_val" type="Label" parent="NinePatchRect/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "30"
+label_settings = SubResource("LabelSettings_k4euo")
+
+[node name="Equipment" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 17.6471
+offset_top = 30.8666
+offset_right = 158.647
+offset_bottom = 138.867
+
+[node name="Armour" type="VBoxContainer" parent="NinePatchRect/Equipment"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/Equipment/Armour"]
+layout_mode = 2
+
+[node name="Helmet" parent="NinePatchRect/Equipment/Armour/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Chestplate" parent="NinePatchRect/Equipment/Armour/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Leggings" parent="NinePatchRect/Equipment/Armour/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Boots" parent="NinePatchRect/Equipment/Armour/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Accessories" type="VBoxContainer" parent="NinePatchRect/Equipment"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Necklace" parent="NinePatchRect/Equipment/Accessories" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Ring" parent="NinePatchRect/Equipment/Accessories" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Bracelet" parent="NinePatchRect/Equipment/Accessories" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Belt" parent="NinePatchRect/Equipment/Accessories" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="Inv" type="ScrollContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.88235
+offset_top = 148.16
+offset_right = 170.882
+offset_bottom = 235.16
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/Inv"]
+layout_mode = 2
+columns = 6
+
+[node name="inv_slot" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot2" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot3" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot4" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot5" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot6" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot7" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot8" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot9" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot10" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot11" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot12" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot13" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot14" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot15" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot16" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot17" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot18" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot19" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot20" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot21" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot22" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot23" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot24" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot25" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot26" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot27" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot28" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[node name="inv_slot29" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
+layout_mode = 2
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

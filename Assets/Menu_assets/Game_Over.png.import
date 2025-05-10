@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btbam52jupy60"
-path="res://.godot/imported/ats_level_up.png-79d3a18ca55ce6ac13f56e5145f9b366.ctex"
+uid="uid://dd5lauenirut3"
+path="res://.godot/imported/Game_Over.png-a196853e16b938a5d4d154231369c2ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/assets/ats_level_up.png"
-dest_files=["res://.godot/imported/ats_level_up.png-79d3a18ca55ce6ac13f56e5145f9b366.ctex"]
+source_file="res://Assets/Menu_assets/Game_Over.png"
+dest_files=["res://.godot/imported/Game_Over.png-a196853e16b938a5d4d154231369c2ba.ctex"]
 
 [params]
 

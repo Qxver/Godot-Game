@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8ur32a8cy8pf"]
 
 [ext_resource type="Script" uid="uid://b5630wch0f6vd" path="res://Menu/menu.gd" id="1_lti8b"]
-[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Menu/assets/menu_background.jpg" id="2_ihied"]
+[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="2_ihied"]
 [ext_resource type="Script" uid="uid://bcmix7u0pvb58" path="res://Menu/button.gd" id="2_raj00"]
 
 [node name="Menu" type="Control"]
