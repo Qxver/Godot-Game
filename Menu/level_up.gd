@@ -16,6 +16,7 @@ func resume():
 func pause():
 	show()
 	InputMap.action_erase_events("esc")
+	InputMap.action_erase_events("inv")
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
 	

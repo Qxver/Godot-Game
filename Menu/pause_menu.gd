@@ -8,9 +8,11 @@ func resume():
 	$AnimationPlayer.play_backwards("blur")
 	await $AnimationPlayer.animation_finished
 	get_tree().paused = false
+	InputMap.load_from_project_settings()
 	hide()
 	
 func pause():
+	InputMap.action_erase_events("inv")
 	show()
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
