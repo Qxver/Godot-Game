@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItems" load_steps=3 format=3 uid="uid://cquv2he1ae71c"]
+
+[ext_resource type="Script" uid="uid://dw7xqwqvj4rxn" path="res://Inventory/Inv_items.gd" id="1_s8d6w"]
+[ext_resource type="Texture2D" uid="uid://1ibxm3clxf3o" path="res://Assets/Items/Armour/leggings1.tres" id="2_3iefn"]
+
+[resource]
+script = ExtResource("1_s8d6w")
+name = "leggings1"
+texture = ExtResource("2_3iefn")
+deffence = 4
+metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

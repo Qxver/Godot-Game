@@ -73,25 +73,25 @@ func drop_item():
 	var roll_item = randi_range(0, 100)
 	
 	#TEMP IF FOR TESTING
-	if roll_item in range(0, 100):
-		item.item_type = 6
-		item.jewelry_type = randi_range(0, 7)
-	#if roll_item in range(0, 68):
-		#item.item_type = 0
-	#elif roll_item in range(68, 89):
-		#item.item_type = 1
-	#elif roll_item in range(89, 94):
-		#item.armour_type = randi_range(0, 3)
-		#item.item_type = 2
-	#elif roll_item in range(94, 98):
-		#item.armour_type = randi_range(0, 3)
-		#item.item_type = 3
-	#elif roll_item in range(98, 100):
-		#item.armour_type = randi_range(0, 3)
-		#item.item_type = 4
-	#else:
-		#item.armour_type = randi_range(0, 3)
-		#item.item_type = 5
+	#if roll_item in range(0, 100):
+		#item.item_type = 6
+		#item.jewelry_type = randi_range(0, 7)
+	if roll_item in range(0, 68):
+		item.item_type = 0
+	elif roll_item in range(68, 89):
+		item.item_type = 1
+	elif roll_item in range(89, 94):
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 2
+	elif roll_item in range(94, 98):
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 3
+	elif roll_item in range(98, 100):
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 4
+	else:
+		item.armour_type = randi_range(0, 3)
+		item.item_type = 5
 		
 	if item.item_type == 0:
 		item.collected.connect(game._on_coin_collected)

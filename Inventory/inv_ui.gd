@@ -1,7 +1,14 @@
 extends Control
 
+@onready var slots : Array =  $NinePatchRect/Inv/GridContainer.get_children()
+
 func _ready():
+	update_slots()
 	hide()
+
+func update_slots():
+	for i in range (min(PlayerStats.inventory.size(), slots.size())):
+		slots[i].update(PlayerStats.inventory[i])
 
 func resume():
 	get_tree().paused = false
@@ -14,6 +21,7 @@ func pause():
 	%Ats_val.text = str(PlayerStats.attack_speed)
 	%Hp_val.text = str(PlayerStats.health) + "/" + str(PlayerStats.max_hp)
 	%Def_val.text = str(PlayerStats.defence)
+	update_slots()
 	show()
 	get_tree().paused = true
 

@@ -21,4 +21,14 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_ljysl")
 centered = false
 
-[node name="Item" type="Sprite2D" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_vis" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.15, 0.15)
