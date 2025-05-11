@@ -1,11 +1,10 @@
 extends Area2D
 #Weapon stats
 var level = 1
-var speed = 100
 var damage_multiplier = 0.25
 var attacksize = 1.0
 var duration =  1.0
-
+var reload_reduction=0.0
 var target = Vector2.ZERO
 @onready var player = get_tree().get_first_node_in_group("player")
 var can_move: bool = true
@@ -21,7 +20,7 @@ func _ready() -> void:
 #moving projectiles
 func _physics_process(delta) -> void:
 	if can_move:
-		global_position += target * speed * delta
+		global_position += target * PlayerStats.attack_speed*0.5 * delta
 
 #Deleting projectiles after hitting enough enemies
 func enemy_hit() -> void:
@@ -36,7 +35,7 @@ func DealDamage():
 	
 func explosion() -> void:
 	can_move=false
-	damage_multiplier = 0.75
+	damage_multiplier = 2.0
 	$Sprite2D2.visible=true
 	$Explosion.call_deferred("set_disabled", true)
 	$BombExplsionTime.start()
