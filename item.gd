@@ -4,35 +4,39 @@ signal collected
 var item
 var item_type: int
 var armour_type: int
-var jewelry_type: int
+var accessory_type: int
 
 # preloading items
 var coin = preload("res://Assets/Items/coin_spin-Sheet.png")
 var health_box = preload("res://Assets/Items/health_drop.png")
-var helmet1 = preload("res://Inventory/Items/helmet1.tres")
-var helmet2 = preload("res://Inventory/Items/helmet2.tres")
-var helmet3 = preload("res://Inventory/Items/helmet3.tres")
-var helmet4 = preload("res://Inventory/Items/helmet4.tres")
-var chestplate1 = preload("res://Inventory/Items/chestplate1.tres")
-var chestplate2 = preload("res://Inventory/Items/chestplate2.tres")
-var chestplate3 = preload("res://Inventory/Items/chestplate3.tres")
-var chestplate4 = preload("res://Inventory/Items/chestplate4.tres")
-var leggings1 = preload("res://Inventory/Items/leggings1.tres")
-var leggings2 = preload("res://Inventory/Items/leggings2.tres")
-var leggings3 = preload("res://Inventory/Items/leggings3.tres")
-var leggings4 = preload("res://Inventory/Items/leggings4.tres")
-var boots1 = preload("res://Inventory/Items/boots1.tres")
-var boots2 = preload("res://Inventory/Items/boots2.tres")
-var boots3 = preload("res://Inventory/Items/boots3.tres")
-var boots4 = preload("res://Inventory/Items/boots4.tres")
-var ruby_ring = preload("res://Assets/Items/Jewelry/ruby_ring.tres")
-var ruby_necklace = preload("res://Assets/Items/Jewelry/ruby_necklace.tres")
-var emerald_ring = preload("res://Assets/Items/Jewelry/emerald_ring.tres")
-var emerald_necklace = preload("res://Assets/Items/Jewelry/emerald_necklace.tres")
-var sapphire_ring = preload("res://Assets/Items/Jewelry/sapphire_ring.tres")
-var sapphire_necklace = preload("res://Assets/Items/Jewelry/sapphire_necklace.tres")
-var amethyst_ring = preload("res://Assets/Items/Jewelry/amethyst_ring.tres")
-var amethyst_necklace = preload("res://Assets/Items/Jewelry/amethyst_necklace.tres")
+var helmet1 = preload("res://Inventory/Items/Armour/helmet1.tres")
+var helmet2 = preload("res://Inventory/Items/Armour/helmet2.tres")
+var helmet3 = preload("res://Inventory/Items/Armour/helmet3.tres")
+var helmet4 = preload("res://Inventory/Items/Armour/helmet4.tres")
+var chestplate1 = preload("res://Inventory/Items/Armour/chestplate1.tres")
+var chestplate2 = preload("res://Inventory/Items/Armour/chestplate2.tres")
+var chestplate3 = preload("res://Inventory/Items/Armour/chestplate3.tres")
+var chestplate4 = preload("res://Inventory/Items/Armour/chestplate4.tres")
+var leggings1 = preload("res://Inventory/Items/Armour/leggings1.tres")
+var leggings2 = preload("res://Inventory/Items/Armour/leggings2.tres")
+var leggings3 = preload("res://Inventory/Items/Armour/leggings3.tres")
+var leggings4 = preload("res://Inventory/Items/Armour/leggings4.tres")
+var boots1 = preload("res://Inventory/Items/Armour/boots1.tres")
+var boots2 = preload("res://Inventory/Items/Armour/boots2.tres")
+var boots3 = preload("res://Inventory/Items/Armour/boots3.tres")
+var boots4 = preload("res://Inventory/Items/Armour/boots4.tres")
+var ruby_ring = preload("res://Inventory/Items/Accessories/ruby_ring.tres")
+var ruby_necklace = preload("res://Inventory/Items/Accessories/ruby_necklace.tres")
+var emerald_ring = preload("res://Inventory/Items/Accessories/emerald_ring.tres")
+var emerald_necklace = preload("res://Inventory/Items/Accessories/emerald_necklace.tres")
+var sapphire_ring = preload("res://Inventory/Items/Accessories/sapphire_ring.tres")
+var sapphire_necklace = preload("res://Inventory/Items/Accessories/sapphire_necklace.tres")
+var amethyst_ring = preload("res://Inventory/Items/Accessories/amethyst_ring.tres")
+var amethyst_necklace = preload("res://Inventory/Items/Accessories/amethyst_necklace.tres")
+var ruby_belt = preload("res://Inventory/Items/Accessories/ruby_belt.png")
+var emerald_belt = preload("res://Inventory/Items/Accessories/emerald_belt.png")
+var sapphire_belt = preload("res://Inventory/Items/Accessories/sapphire_belt.png")
+var amethyst_belt = preload("res://Inventory/Items/Accessories/amethyst_belt.png")
 
 # armor item pools
 var armour1 = [helmet1, chestplate1, leggings1, boots1]
@@ -41,25 +45,28 @@ var armour3 = [helmet3, chestplate3, leggings3, boots2]
 var armour4 = [helmet4, chestplate4, leggings4, boots3]
 
 # jewelry item pool
-var jewelry = [ruby_ring, ruby_necklace, sapphire_ring, sapphire_necklace, amethyst_ring, amethyst_necklace, emerald_ring, emerald_necklace]
+var jewelry =  [ruby_ring, ruby_necklace, ruby_belt,
+ 				sapphire_ring, sapphire_necklace, sapphire_belt,
+ 				amethyst_ring, amethyst_necklace, amethyst_belt,
+ 				emerald_ring, emerald_necklace, emerald_belt]
 
-var item_pool = [coin, health_box, armour1, armour2, armour3, armour4, jewelry] # item pool
+var item_pool = [coin, health_box, armour1, armour2, armour3, armour4, jewelry]
 
 func _ready() -> void:
 	item = item_pool[item_type]
-	if item is not Array:
+	if item is not Array: # coin
 		$Sprite2D.texture = item
-		if item_type == 1:
+		if item_type == 1: # health
 			$Sprite2D.scale = Vector2(0.6, 0.6)
 			$Sprite2D.region_enabled = true
 			$Sprite2D.region_rect = Rect2(0, 0, 8, 8)
 	else:
 		$Sprite2D.region_enabled = false
-		if item_type == 6:
+		if item_type == 6: # jewelry
 			$Sprite2D.scale = Vector2(0.6, 0.6)
-			$Sprite2D.texture = item_pool[item_type][jewelry_type]
-		else:
-			$Sprite2D.scale = Vector2(0.1, 0.1)
+			$Sprite2D.texture = item_pool[item_type][accessory_type]
+		else: # armour
+			$Sprite2D.scale = Vector2(0.06, 0.06)
 			$Sprite2D.texture = item_pool[item_type][armour_type].texture
 		
 # item collection and item action on pickup

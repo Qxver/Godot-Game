@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InvItems" load_steps=3 format=3 uid="uid://mg2vs5pf4xvk"]
+[gd_resource type="Resource" script_class="InvItems" load_steps=3 format=3 uid="uid://bclfyc10qh6x4"]
 
 [ext_resource type="Script" uid="uid://dw7xqwqvj4rxn" path="res://Inventory/Inv_items.gd" id="1_edolc"]
 [ext_resource type="Texture2D" uid="uid://djosqlgmg3tnh" path="res://Assets/Items/Armour/boots3.tres" id="2_ssvuo"]
@@ -8,6 +8,4 @@ script = ExtResource("1_edolc")
 name = "Boots3"
 texture = ExtResource("2_ssvuo")
 deffence = 1
-armour_type = 2
-item_type = 2
 metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

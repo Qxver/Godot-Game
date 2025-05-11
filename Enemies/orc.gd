@@ -71,11 +71,6 @@ func drop_item():
 	var item = item_scene.instantiate()
 	item.position = position
 	var roll_item = randi_range(0, 100)
-	
-	#TEMP IF FOR TESTING
-	#if roll_item in range(0, 100):
-		#item.item_type = 6
-		#item.jewelry_type = randi_range(0, 7)
 	if roll_item in range(0, 68):
 		item.item_type = 0
 	elif roll_item in range(68, 89):
