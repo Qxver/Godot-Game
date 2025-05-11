@@ -8,18 +8,22 @@ signal levelup
 
 #Starting weapon
 var bow = preload("res://Attacks/bow.tscn")
-@onready var  BowTimer=get_node("Attack/BowTimer")#Reloading time
-@onready var BowAttackTimer=get_node("Attack/BowTimer/BowAttackTimer") #AttackTime
-var BowAttackSpeed=1
+@onready var  BowTimer=get_node("Attack/BowTimer")#Reloading timer
+@onready var BowAttackTimer=get_node("Attack/BowTimer/BowAttackTimer") #Attack timer
+var BowSpeed=1.0 #How slow weapon is, the higher the number the slower the weapon
+var BowReloadSpeed=BowSpeed * PlayerStats.reload_reduction#Time to reload
 var BowAmmo=0
 var BowBaseAmmo=3
 
+
 var bomb = preload("res://Attacks/bomb.tscn")
 @onready var BombTimer=get_node("Attack/BombTimer")#Reloading time
-@onready var BombAttackTimer=get_node("Attack/BombTimer/BombAttackTimer") #AttackTime
-var BombAttackSpeed=1
+@onready var BombAttackTimer=get_node("Attack/BombTimer/BombAttackTimer") #Attack timer
+var BombSpeed=3.0 #How slow weapon is, the higher the number the slower the weapon
+var BombReloadSpeed=BombSpeed * PlayerStats.reload_reduction#Time to reload
 var BombAmmo = 0
 var BombBaseAmmo=1
+
 
 #Level/Exp related
 var level=1
@@ -33,10 +37,10 @@ func _ready():
 	attack()
 
 func attack():
-	BowTimer.wait_time=BowAttackSpeed
+	BowTimer.wait_time=BowReloadSpeed
 	if BowTimer.is_stopped():
 		BowTimer.start()
-	BombTimer.wait_time=BombAttackSpeed
+	BombTimer.wait_time=BombReloadSpeed
 	if BombTimer.is_stopped():
 		BombTimer.start()
 	
@@ -54,7 +58,9 @@ func GetClosestTarget():
 
 func _on_bow_timer_timeout():
 	BowAmmo=BowBaseAmmo
+	BowAttackTimer.wait_time=BowSpeed/((PlayerStats.attack_speed*0.01)*1)
 	BowAttackTimer.start()
+	BowTimer.wait_time=BowSpeed * PlayerStats.reload_reduction
 	
 func _on_bow_attack_timer_timeout():
 	if BowAmmo>0:
@@ -71,7 +77,9 @@ func _on_bow_attack_timer_timeout():
 	pass # Replace with function body.
 func _on_bomb_timer_timeout() -> void:
 	BombAmmo=BombBaseAmmo
+	BombAttackTimer.wait_time=BombSpeed/((PlayerStats.attack_speed*0.01)*1)
 	BombAttackTimer.start() 
+	BombTimer.wait_time=BombSpeed * PlayerStats.reload_reduction
 	
 func _on_bomb_attack_timer_timeout() -> void:
 	if BombAmmo >0:
@@ -142,5 +150,8 @@ func _process(delta) -> void:
 			health_depleted.emit()
 			
 func _on_level_up_as_up() -> void:
-	BowAttackTimer.wait_time -= 0.5
 	PlayerStats.attack_speed += 15
+	attack()
+	
+func clamp_to_zero(wait_time)-> float:
+	return max(wait_time,0.01)	
