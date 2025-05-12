@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var player = get_node("Player")
 
-var coins = 0
+var coins: int = 0
+const save_path = "res://save_data.json" # save game path
 var item_scene = preload("res://Item.tscn")
 var decorations = [
 	preload("res://Assets/Terrain/bushes/Bush_blue_flowers2.png"),
@@ -74,6 +75,8 @@ func _physics_process(delta: float) -> void:
 			
 			
 func _ready() -> void:
+	load_game() # load game stats on start
+	
 	randomize()
 	%TimeLabel.set_text("0:00")
 	%ExpLabel.text = "Level 1"
@@ -81,7 +84,6 @@ func _ready() -> void:
 	
 	var item = item_scene.instantiate()
 	coin_label() 
-	
 	
 func _process(delta):
 	if decorations.is_empty():
@@ -103,6 +105,7 @@ func _on_player_levelup() -> void:
 func _on_coin_collected() -> void:
 	coins += 1
 	coin_label()
+	save_game(coins)
 
 #generating trees and bushes around the player
 func spawn_decorations_near_player():
@@ -127,3 +130,20 @@ func spawn_decorations_near_player():
 			decoration.z_index = -1
 			add_child(decoration)
 			placed_positions.append(spawn_position)
+
+# auto save to file
+func save_game(coins: int) -> void:
+	var save_data = {
+		"coins": coins
+	}
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify((save_data)))
+	file.close()
+	
+func load_game():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		var data = file.get_as_text()
+		var json = JSON.parse_string(data)
+		if typeof(json) == TYPE_DICTIONARY:
+			coins = json.get("coins", 0)
