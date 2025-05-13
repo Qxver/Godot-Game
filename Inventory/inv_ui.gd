@@ -12,6 +12,7 @@ func update_slots():
 
 func resume():
 	get_tree().paused = false
+	$AnimatedSprite2D.stop()
 	InputMap.load_from_project_settings()
 	hide()
  
@@ -22,6 +23,7 @@ func pause():
 	%Hp_val.text = str(int(PlayerStats.health)) + "/" + str(PlayerStats.max_hp)
 	%Def_val.text = str(PlayerStats.defence)
 	update_slots()
+	$AnimatedSprite2D.play("default")
 	show()
 	get_tree().paused = true
 
