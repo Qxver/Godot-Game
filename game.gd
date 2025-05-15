@@ -103,6 +103,7 @@ func _on_player_levelup() -> void:
 
 # update coin value
 func _on_coin_collected() -> void:
+	PlayerStats.coins += 1
 	coins += 1
 	coin_label()
 	save_game(coins)

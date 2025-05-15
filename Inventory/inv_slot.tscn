@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c87cnnv1qxlck" path="res://Inventory/inv_slot.gd" id="1_hwqj2"]
 [ext_resource type="Texture2D" uid="uid://dcwv5482v65ei" path="res://Assets/Menu_assets/item_frame.png" id="1_ljysl"]
 
-[node name="inv_slot" type="Panel"]
+[node name="inv_slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(24, 24)
 anchors_preset = 15
@@ -26,9 +26,3 @@ custom_minimum_size = Vector2(24, 24)
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
-
-[node name="Panel" type="Panel" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="item_vis" type="Sprite2D" parent="CenterContainer/Panel"]
-scale = Vector2(0.15, 0.15)

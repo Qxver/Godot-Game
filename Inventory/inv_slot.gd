@@ -1,10 +1,8 @@
-extends Panel
+extends Button
 
-@onready var item_vis: Sprite2D = $CenterContainer/Panel/item_vis
+@onready var container: CenterContainer = $CenterContainer
+var itemInSlot: ItemInSlot
 
-func update(item: InvItems):
-	if !item:
-		item_vis.visible = false
-	else:
-		item_vis.visible = true
-		item_vis.texture = item.texture
+func insert(iis: ItemInSlot):
+	itemInSlot = iis
+	container.add_child(itemInSlot)

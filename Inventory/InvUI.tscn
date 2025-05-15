@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://d4hmqtouiu3qi"]
+[gd_scene load_steps=30 format=3 uid="uid://d4hmqtouiu3qi"]
 
 [ext_resource type="Script" uid="uid://sskwaoewx6q0" path="res://Inventory/inv_ui.gd" id="1_ughb5"]
 [ext_resource type="Texture2D" uid="uid://dw5r2dayj38p2" path="res://Assets/Menu_assets/frame.png" id="2_3klia"]
 [ext_resource type="Texture2D" uid="uid://cig71lm7hhm6e" path="res://Assets/Menu_assets/character_frame.png" id="2_67srk"]
 [ext_resource type="Texture2D" uid="uid://ciinxspg8if6o" path="res://Assets/Menu_assets/Soldier-Idle-menu.png" id="2_rqxd6"]
 [ext_resource type="Texture2D" uid="uid://cu7wowh2548t2" path="res://Assets/Menu_assets/dmg.png" id="3_35ghd"]
-[ext_resource type="Texture2D" uid="uid://8vthmkrj0aye" path="res://Assets/Menu_assets/coin_frame.png" id="3_ks0ad"]
+[ext_resource type="Texture2D" uid="uid://c4kx7uuk01x77" path="res://Assets/Items/coin_spin-Sheet.png" id="3_ks0ad"]
 [ext_resource type="Texture2D" uid="uid://cph2xij715g3n" path="res://Assets/Menu_assets/ats.png" id="4_epqjb"]
 [ext_resource type="Texture2D" uid="uid://dul2c5rwo8giw" path="res://Assets/Menu_assets/hp.png" id="5_c68me"]
 [ext_resource type="Texture2D" uid="uid://b3ateisudmq2n" path="res://Assets/Menu_assets/def.png" id="6_ig2n5"]
@@ -57,7 +57,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pwmn1")
 }],
 "loop": true,
-"name": &"default",
+"name": &"character",
 "speed": 5.0
 }]
 
@@ -66,6 +66,73 @@ script/source = "extends AnimatedSprite2D
 
 	
 "
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rqxd6"]
+load_path = "res://.godot/imported/coin_frame.png-6ad7dd7e0ad9f9ec6feeecb894fc4471.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0ny4"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb27p"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt5uf"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w56vc"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2f3g"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g663b"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eli2t"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng4bd"]
+atlas = ExtResource("3_ks0ad")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0s2v8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0ny4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb27p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt5uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w56vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2f3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g663b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eli2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng4bd")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k4euo"]
 font_size = 11
@@ -88,26 +155,43 @@ offset_right = 193.0
 offset_bottom = 55.0
 text = "X"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Character2" type="AnimatedSprite2D" parent="."]
 z_index = 2
 position = Vector2(319, 134)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_i0ny4")
+animation = &"character"
 script = SubResource("GDScript_qoah3")
 
 [node name="Coins" type="NinePatchRect" parent="."]
 z_index = 1
-offset_left = 445.0
-offset_top = 55.0
-offset_right = 457.0
-offset_bottom = 91.0
-scale = Vector2(13, 1)
+layout_mode = 0
+offset_left = 443.0
+offset_top = 210.0
+offset_right = 509.0
+offset_bottom = 232.0
+scale = Vector2(2, 2)
 size_flags_horizontal = 6
-texture = ExtResource("3_ks0ad")
+texture = SubResource("CompressedTexture2D_rqxd6")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
+
+[node name="coin_amount" type="Label" parent="Coins"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -1.0
+offset_right = 63.0
+offset_bottom = 24.0
+text = "8888"
+horizontal_alignment = 2
+
+[node name="Coin" type="AnimatedSprite2D" parent="Coins"]
+position = Vector2(10.5, 11)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_0s2v8")
+animation = &"coin"
 
 [node name="Character" type="NinePatchRect" parent="."]
 z_index = 1
@@ -129,7 +213,7 @@ anchor_top = 0.067
 anchor_right = 0.686
 anchor_bottom = 0.92
 offset_left = 0.319992
-offset_top = -0.119997
+offset_top = -0.120001
 offset_right = -63.04
 offset_bottom = -66.2
 grow_horizontal = 2
@@ -334,5 +418,13 @@ layout_mode = 2
 
 [node name="inv_slot29" parent="NinePatchRect/Inv/GridContainer" instance=ExtResource("7_35ghd")]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 259.0
+offset_right = 502.0
+offset_bottom = 283.0
+text = "Sell"
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -8,3 +8,4 @@ var damage_reduction: float = 1 - (defence / 100)
 var reload_reduction=1.0 #in percentages
 
 var inventory: Array[InvItems]
+var coins = 0
