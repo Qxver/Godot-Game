@@ -7,7 +7,8 @@
 script = ExtResource("1_ywly0")
 name = "Boots4"
 texture = ExtResource("2_8sqny")
+item_type = 4
 deffence = 4
-armour_type = 3
-item_type = 2
+buy_price = 0
+sell_price = 0
 metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

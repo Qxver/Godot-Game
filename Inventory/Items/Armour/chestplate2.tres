@@ -7,5 +7,8 @@
 script = ExtResource("1_57bwq")
 name = "chestplate2"
 texture = ExtResource("2_qm5pt")
+item_type = 2
 deffence = 4
+buy_price = 0
+sell_price = 0
 metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

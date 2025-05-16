@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ixbrp0fri5jl"]
+[gd_scene load_steps=5 format=3 uid="uid://ixbrp0fri5jl"]
 
 [ext_resource type="Script" uid="uid://c87cnnv1qxlck" path="res://Inventory/inv_slot.gd" id="1_hwqj2"]
-[ext_resource type="Texture2D" uid="uid://dcwv5482v65ei" path="res://Assets/Menu_assets/item_frame.png" id="1_ljysl"]
+[ext_resource type="Texture2D" uid="uid://c8lyf5tv3u0pe" path="res://Assets/Menu_assets/item_frame_empty.png" id="2_fs7gj"]
+[ext_resource type="PackedScene" uid="uid://bfd7nchc8im5l" path="res://Inventory/Item_info.tscn" id="3_gmqox"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gmqox"]
 
 [node name="inv_slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
@@ -16,13 +19,41 @@ grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_hwqj2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Frame" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_ljysl")
+texture = ExtResource("2_fs7gj")
 centered = false
+
+[node name="Click" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.184314)
+z_index = 2
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+texture = SubResource("CanvasTexture_gmqox")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_vis" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.13, 0.13)
+
+[node name="ItemInfo" parent="." instance=ExtResource("3_gmqox")]
+visible = false
+z_index = 2
+layout_mode = 1
+offset_left = 24.0
+offset_right = 60.0
+offset_bottom = 20.0
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

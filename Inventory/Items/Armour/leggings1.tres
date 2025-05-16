@@ -7,5 +7,8 @@
 script = ExtResource("1_s8d6w")
 name = "leggings1"
 texture = ExtResource("2_3iefn")
+item_type = 3
 deffence = 4
+buy_price = 0
+sell_price = 0
 metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

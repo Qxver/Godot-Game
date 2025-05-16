@@ -227,7 +227,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Stats" type="HBoxContainer" parent="NinePatchRect"]
-z_index = 3
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
@@ -281,7 +280,6 @@ text = "30"
 label_settings = SubResource("LabelSettings_k4euo")
 
 [node name="Equipment" type="HBoxContainer" parent="NinePatchRect"]
-z_index = 3
 layout_mode = 0
 offset_left = 17.6471
 offset_top = 30.8666
@@ -323,7 +321,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Inv" type="ScrollContainer" parent="NinePatchRect"]
-z_index = 3
 layout_mode = 0
 offset_left = 5.88235
 offset_top = 148.16
@@ -420,9 +417,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="inv_slot29" parent="NinePatchRect/Inv/InvContainer" instance=ExtResource("7_35ghd")]
-layout_mode = 2
-
-[node name="inv_slot30" parent="NinePatchRect/Inv/InvContainer" instance=ExtResource("7_35ghd")]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
