@@ -31,7 +31,7 @@ func resume():
 	hide()
  
 func pause():
-	PlayerStats.inventory+=[preload("res://Inventory/Items/Armour/boots1.tres"),preload("res://Inventory/Items/Armour/boots3.tres"),preload("res://Inventory/Items/Armour/chestplate3.tres")]
+	PlayerStats.inventory+=[preload("res://Inventory/Items/Armour/boots4.tres"),preload("res://Inventory/Items/Armour/helmet4.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Armour/leggings4.tres")]
 	InputMap.action_erase_events("esc")
 	update_slots()
 	show()
@@ -83,6 +83,7 @@ func handle_slot_swap(slot, index, item):
 		slot.update(item)
 		PlayerStats.item_effect(item,2)
 		update_stats()
+		update_slots()
 
 func replace_item(index, old_item, new_item):
 	PlayerStats.inventory.push_back(new_item)
