@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dydjvsmmwukl"
-path="res://.godot/imported/ruby_belt.png-6fb7f112a4a456578bbe0a2ccd98511d.ctex"
+uid="uid://hujggdkierh3"
+path="res://.godot/imported/sapphire_belt.png-e902e0d49cd4788989c8117dedbd46b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Items/Accessories/ruby_belt.png"
-dest_files=["res://.godot/imported/ruby_belt.png-6fb7f112a4a456578bbe0a2ccd98511d.ctex"]
+source_file="res://Assets/Items/Jewelry/sapphire_belt.png"
+dest_files=["res://.godot/imported/sapphire_belt.png-e902e0d49cd4788989c8117dedbd46b9.ctex"]
 
 [params]
 

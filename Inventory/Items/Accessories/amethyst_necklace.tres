@@ -1,7 +1,18 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bo26a5ceaasyx"]
+[gd_resource type="Resource" script_class="InvItems" load_steps=3 format=3 uid="uid://wa3c00wvpne6"]
 
-[ext_resource type="Texture2D" uid="uid://dghv3jccug8ke" path="res://Assets/Items/Jewelry/jewelry.png" id="1_j64q4"]
+[ext_resource type="Script" uid="uid://dw7xqwqvj4rxn" path="res://Inventory/Inv_items.gd" id="1_tn4rk"]
+[ext_resource type="Texture2D" uid="uid://bo26a5ceaasyx" path="res://Assets/Items/Jewelry/amethyst_necklace.tres" id="2_2wxs1"]
 
 [resource]
-atlas = ExtResource("1_j64q4")
-region = Rect2(48, 80, 16, 16)
+script = ExtResource("1_tn4rk")
+name = "amethyst_necklace"
+texture = ExtResource("2_2wxs1")
+item_type = 5
+deffence = 0
+attack = 10
+hp = 0
+xp = 0
+ats = 0
+buy_price = 0
+sell_price = 0
+metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbt2t5pjvq3se"
-path="res://.godot/imported/amethyst_belt.png-530fc3ce72a2e980025e8fec29104356.ctex"
+uid="uid://ioe2ki0w3ee0"
+path="res://.godot/imported/emerald_belt.png-9dfff2411d6a7d21128ed1f93a233439.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Items/Accessories/amethyst_belt.png"
-dest_files=["res://.godot/imported/amethyst_belt.png-530fc3ce72a2e980025e8fec29104356.ctex"]
+source_file="res://Assets/Items/Jewelry/emerald_belt.png"
+dest_files=["res://.godot/imported/emerald_belt.png-9dfff2411d6a7d21128ed1f93a233439.ctex"]
 
 [params]
 

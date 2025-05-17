@@ -1,7 +1,18 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dwvkwl0cj6su0"]
+[gd_resource type="Resource" script_class="InvItems" load_steps=3 format=3 uid="uid://cghkk0soqpduk"]
 
-[ext_resource type="Texture2D" uid="uid://dghv3jccug8ke" path="res://Assets/Items/Jewelry/jewelry.png" id="1_3pweh"]
+[ext_resource type="Script" uid="uid://dw7xqwqvj4rxn" path="res://Inventory/Inv_items.gd" id="1_wta2r"]
+[ext_resource type="Texture2D" uid="uid://dwvkwl0cj6su0" path="res://Assets/Items/Jewelry/ruby_ring.tres" id="2_n20pt"]
 
 [resource]
-atlas = ExtResource("1_3pweh")
-region = Rect2(32, 16, 16, 16)
+script = ExtResource("1_wta2r")
+name = "ruby_ring"
+texture = ExtResource("2_n20pt")
+item_type = 7
+deffence = 0
+attack = 0
+hp = 50
+xp = 0
+ats = 0
+buy_price = 0
+sell_price = 0
+metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

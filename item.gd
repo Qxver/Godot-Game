@@ -33,10 +33,10 @@ var sapphire_ring = preload("res://Inventory/Items/Accessories/sapphire_ring.tre
 var sapphire_necklace = preload("res://Inventory/Items/Accessories/sapphire_necklace.tres")
 var amethyst_ring = preload("res://Inventory/Items/Accessories/amethyst_ring.tres")
 var amethyst_necklace = preload("res://Inventory/Items/Accessories/amethyst_necklace.tres")
-var ruby_belt = preload("res://Inventory/Items/Accessories/ruby_belt.png")
-var emerald_belt = preload("res://Inventory/Items/Accessories/emerald_belt.png")
-var sapphire_belt = preload("res://Inventory/Items/Accessories/sapphire_belt.png")
-var amethyst_belt = preload("res://Inventory/Items/Accessories/amethyst_belt.png")
+var ruby_belt = preload("res://Inventory/Items/Accessories/ruby_belt.tres")
+var emerald_belt = preload("res://Inventory/Items/Accessories/emerald_belt.tres")
+var sapphire_belt = preload("res://Inventory/Items/Accessories/sapphire_belt.tres")
+var amethyst_belt = preload("res://Inventory/Items/Accessories/amethyst_belt.tres")
 
 # armor item pools
 var armour1 = [helmet1, chestplate1, leggings1, boots1]

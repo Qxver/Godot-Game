@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ioe2ki0w3ee0"
-path="res://.godot/imported/emerald_belt.png-6076687079401815f9e99ec7a0f369c1.ctex"
+uid="uid://dydjvsmmwukl"
+path="res://.godot/imported/ruby_belt.png-588cdd64c7fe5e0ccbbc596248938601.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Items/Accessories/emerald_belt.png"
-dest_files=["res://.godot/imported/emerald_belt.png-6076687079401815f9e99ec7a0f369c1.ctex"]
+source_file="res://Assets/Items/Jewelry/ruby_belt.png"
+dest_files=["res://.godot/imported/ruby_belt.png-588cdd64c7fe5e0ccbbc596248938601.ctex"]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvItems" load_steps=3 format=3 uid="uid://dbhnktx2pyjbh"]
+
+[ext_resource type="Script" uid="uid://dw7xqwqvj4rxn" path="res://Inventory/Inv_items.gd" id="1_hjysr"]
+[ext_resource type="Texture2D" uid="uid://bokujjfbeeopy" path="res://Assets/Items/Belts/PNG/Transperent/amethyst_belt.png" id="2_xoqb8"]
+
+[resource]
+script = ExtResource("1_hjysr")
+name = "amethyst_belt"
+texture = ExtResource("2_xoqb8")
+item_type = 8
+deffence = 0
+attack = 10
+hp = 0
+xp = 0
+ats = 0
+buy_price = 0
+sell_price = 0
+metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"
