@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://cfpfd81vfaxec"]
+[gd_scene load_steps=26 format=3 uid="uid://cfpfd81vfaxec"]
 
 [ext_resource type="Script" uid="uid://vcbqumwi4knx" path="res://Menu/character_selection.gd" id="1_edh8k"]
 [ext_resource type="Shader" uid="uid://dj5shm1fmp5yv" path="res://Menu/pause_menu.gdshader" id="2_5ofxg"]
 [ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="3_nic03"]
 [ext_resource type="Texture2D" uid="uid://0xtjw0fyn7yt" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="4_6hb31"]
+[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="5_6hb31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
 shader = ExtResource("2_5ofxg")
@@ -126,6 +127,33 @@ script/source = "extends AnimatedSprite2D
 	
 "
 
+[sub_resource type="Animation" id="Animation_6hb31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_nic03"]
 resource_name = "blur"
 length = 0.3
@@ -152,33 +180,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6hb31"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qxtyl"]
@@ -341,5 +342,11 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_qxtyl")
 }
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(320, 180)
+scale = Vector2(0.914286, 0.886699)
+texture = ExtResource("5_6hb31")
 
 [connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/soldier" to="." method="_on_soldier_button_down"]
