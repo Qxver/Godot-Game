@@ -8,8 +8,7 @@ func resume():
 	$AnimationPlayer.play_backwards("go_blur")
 	await $AnimationPlayer.animation_finished
 	hide()
-	get_tree().paused = false
-	
+		
 func pause():
 	show()
 	InputMap.action_erase_events("esc")
@@ -18,9 +17,11 @@ func pause():
 	
 func _on_restart_pressed():
 	InputMap.load_from_project_settings()
-	resume()
 	PlayerStats.damage = 30
 	PlayerStats.max_hp = 100
+	PlayerStats.health = 100
+	resume()
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game.tscn")
 	
 func _on_main_menu_pressed():
