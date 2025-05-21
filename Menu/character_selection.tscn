@@ -1,91 +1,83 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfpfd81vfaxec"]
+[gd_scene load_steps=24 format=3 uid="uid://cfpfd81vfaxec"]
 
 [ext_resource type="Script" uid="uid://vcbqumwi4knx" path="res://Menu/character_selection.gd" id="1_edh8k"]
 [ext_resource type="Shader" uid="uid://dj5shm1fmp5yv" path="res://Menu/pause_menu.gdshader" id="2_5ofxg"]
-[ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="3_nic03"]
-[ext_resource type="Texture2D" uid="uid://0xtjw0fyn7yt" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="4_6hb31"]
+[ext_resource type="Texture2D" uid="uid://nh6gq7kcecp5" path="res://Assets/Characters(100x100)/Dwarf/Dwarf Sprite Sheet.png" id="3_nic03"]
 [ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="5_6hb31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
 shader = ExtResource("2_5ofxg")
 shader_parameter/lod = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hb31"]
 atlas = ExtResource("3_nic03")
-region = Rect2(0, 0, 100, 100)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbesv"]
 atlas = ExtResource("3_nic03")
-region = Rect2(100, 0, 100, 100)
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_37r7x"]
 atlas = ExtResource("3_nic03")
-region = Rect2(200, 0, 100, 100)
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0fbi"]
 atlas = ExtResource("3_nic03")
-region = Rect2(300, 0, 100, 100)
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xn6j"]
 atlas = ExtResource("3_nic03")
-region = Rect2(400, 0, 100, 100)
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfj1d"]
 atlas = ExtResource("3_nic03")
-region = Rect2(500, 0, 100, 100)
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(0, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmgu7"]
+atlas = ExtResource("3_nic03")
+region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(100, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcif4"]
+atlas = ExtResource("3_nic03")
+region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(200, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t6p0"]
+atlas = ExtResource("3_nic03")
+region = Rect2(96, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(300, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h03l5"]
+atlas = ExtResource("3_nic03")
+region = Rect2(128, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(400, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_crqlp"]
+atlas = ExtResource("3_nic03")
+region = Rect2(160, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(500, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5rh7"]
+atlas = ExtResource("3_nic03")
+region = Rect2(192, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(600, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
-atlas = ExtResource("4_6hb31")
-region = Rect2(700, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a2q0"]
+atlas = ExtResource("3_nic03")
+region = Rect2(224, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nic03"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
+"texture": SubResource("AtlasTexture_6hb31")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
+"texture": SubResource("AtlasTexture_nbesv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
+"texture": SubResource("AtlasTexture_37r7x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sweqy")
+"texture": SubResource("AtlasTexture_u0fbi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2hs0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1jxqw")
+"texture": SubResource("AtlasTexture_5xn6j")
 }],
 "loop": true,
 "name": &"idle",
@@ -93,28 +85,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dw050")
+"texture": SubResource("AtlasTexture_cfj1d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b26j0")
+"texture": SubResource("AtlasTexture_cmgu7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n7ghd")
+"texture": SubResource("AtlasTexture_lcif4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nvl01")
+"texture": SubResource("AtlasTexture_3t6p0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ivps1")
+"texture": SubResource("AtlasTexture_h03l5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_urp6f")
+"texture": SubResource("AtlasTexture_crqlp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwjto")
+"texture": SubResource("AtlasTexture_q5rh7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_606se")
+"texture": SubResource("AtlasTexture_6a2q0")
 }],
 "loop": true,
 "name": &"walk",
@@ -286,7 +278,7 @@ modulate = Color(0.0505108, 0.0505108, 0.0505108, 1)
 position = Vector2(50, 50)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nic03")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 script = SubResource("GDScript_6hb31")
 
