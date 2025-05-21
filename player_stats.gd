@@ -5,7 +5,8 @@ var health = 100
 var attack_speed = 100
 var defence: float = 0
 var damage_reduction: float = 1
-var reload_reduction=1.0 #in percentages
+var reload_reduction: float = 1.0 #in percentages
+var character_id: int = 0
 
 var inventory: Array[InvItems]
 var coins = 0
