@@ -12,7 +12,7 @@ func resume():
 	await $AnimationPlayer.animation_finished
 	hide()
 
-func _on_soldier_button_down() -> void:
+func _on_human_pressed() -> void:
 	PlayerStats.damage = 30
 	PlayerStats.health = 100
 	PlayerStats.max_hp = 100
@@ -20,10 +20,11 @@ func _on_soldier_button_down() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game.tscn")
 
-#func _on_dwarf_button_down() -> void:
-#	PlayerStats.damage = 40
-#	PlayerStats.health = 150
-#	PlayerStats.max_hp = 150
-#	PlayerStats.character_id=2
-#	get_tree().paused = false
-#	get_tree().change_scene_to_file("res://game.tscn")
+
+func _on_dwarf_pressed() -> void:
+	PlayerStats.damage = 40
+	PlayerStats.health = 150
+	PlayerStats.max_hp = 150
+	PlayerStats.character_id=2
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://game.tscn")

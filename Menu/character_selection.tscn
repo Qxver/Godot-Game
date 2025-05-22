@@ -7,110 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="4_nbesv"]
 [ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="5_6hb31"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_37r7x"]
-atlas = ExtResource("3_nic03")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0fbi"]
-atlas = ExtResource("3_nic03")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xn6j"]
-atlas = ExtResource("3_nic03")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cfj1d"]
-atlas = ExtResource("3_nic03")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmgu7"]
-atlas = ExtResource("3_nic03")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcif4"]
-atlas = ExtResource("3_nic03")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3t6p0"]
-atlas = ExtResource("3_nic03")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h03l5"]
-atlas = ExtResource("3_nic03")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_crqlp"]
-atlas = ExtResource("3_nic03")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5rh7"]
-atlas = ExtResource("3_nic03")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6a2q0"]
-atlas = ExtResource("3_nic03")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpj3f"]
-atlas = ExtResource("3_nic03")
-region = Rect2(192, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbc7x"]
-atlas = ExtResource("3_nic03")
-region = Rect2(224, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3ov0a"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_37r7x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u0fbi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xn6j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cfj1d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cmgu7")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lcif4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3t6p0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h03l5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_crqlp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q5rh7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6a2q0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kpj3f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbc7x")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
 shader = ExtResource("2_5ofxg")
 shader_parameter/lod = 0.0
@@ -232,6 +128,110 @@ script/source = "extends AnimatedSprite2D
 	
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_37r7x"]
+atlas = ExtResource("3_nic03")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0fbi"]
+atlas = ExtResource("3_nic03")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xn6j"]
+atlas = ExtResource("3_nic03")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfj1d"]
+atlas = ExtResource("3_nic03")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmgu7"]
+atlas = ExtResource("3_nic03")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcif4"]
+atlas = ExtResource("3_nic03")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t6p0"]
+atlas = ExtResource("3_nic03")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h03l5"]
+atlas = ExtResource("3_nic03")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crqlp"]
+atlas = ExtResource("3_nic03")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5rh7"]
+atlas = ExtResource("3_nic03")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a2q0"]
+atlas = ExtResource("3_nic03")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpj3f"]
+atlas = ExtResource("3_nic03")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbc7x"]
+atlas = ExtResource("3_nic03")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ov0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37r7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0fbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xn6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfj1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmgu7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcif4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t6p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h03l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crqlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5rh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a2q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpj3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbc7x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [sub_resource type="Animation" id="Animation_6hb31"]
 length = 0.001
 tracks/0/type = "value"
@@ -302,15 +302,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_edh8k")
-metadata/_edit_horizontal_guides_ = [180.0]
+metadata/_edit_horizontal_guides_ = [180.0, 176.0]
 metadata/_edit_vertical_guides_ = [320.0]
-
-[node name="Dwarf" type="AnimatedSprite2D" parent="."]
-position = Vector2(200, 155)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_3ov0a")
-animation = &"idle"
-autoplay = "idle"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_qxtyl")
@@ -349,18 +342,18 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="soldier" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="Human" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/soldier"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Human"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 20
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer/soldier/VBoxContainer"]
+[node name="HumanAnim" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer/Human/VBoxContainer"]
 position = Vector2(50, 50)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nic03")
@@ -368,7 +361,7 @@ animation = &"idle"
 autoplay = "idle"
 script = SubResource("GDScript_6hb31")
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/soldier/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/Human/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -383,26 +376,24 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+[node name="dwarf" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/Button"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/dwarf"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer2/Button/VBoxContainer"]
-modulate = Color(0.0505108, 0.0505108, 0.0505108, 1)
-position = Vector2(50, 50)
+[node name="Dwarf" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer2/dwarf/VBoxContainer"]
+position = Vector2(42, 26)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_nic03")
-animation = &"walk"
+sprite_frames = SubResource("SpriteFrames_3ov0a")
+animation = &"idle"
 autoplay = "idle"
-script = SubResource("GDScript_6hb31")
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/Button/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/dwarf/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -461,4 +452,5 @@ position = Vector2(320, 180)
 scale = Vector2(0.914286, 0.886699)
 texture = ExtResource("5_6hb31")
 
-[connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/soldier" to="." method="_on_soldier_button_down"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/Human" to="." method="_on_human_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer2/dwarf" to="." method="_on_dwarf_pressed"]

@@ -332,6 +332,7 @@ offset_bottom = 235.16
 vertical_scroll_mode = 3
 
 [node name="InvContainer" type="GridContainer" parent="NinePatchRect/Inv"]
+z_index = 2
 layout_mode = 2
 columns = 6
 

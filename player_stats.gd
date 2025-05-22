@@ -17,8 +17,6 @@ func item_effect(item: InvItems,operation: int):
 		if operation == 1:
 			defence -= item.deffence
 			damage_reduction= 1 - (defence / 100)
-			print(damage_reduction)
 		elif operation == 2:
 			defence += item.deffence
 			damage_reduction= 1 - (defence / 100)
-			print(damage_reduction)

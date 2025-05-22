@@ -23,6 +23,7 @@ func update(item: InvItems):
 func _on_mouse_entered():
 	if itemInSlot == null:
 		return
+	$ItemInfo.display_info(itemInSlot)
 	$ItemInfo.visible = true
 	$Frame.texture = frame_selected
 
