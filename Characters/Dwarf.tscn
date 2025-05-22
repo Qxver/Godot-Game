@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://krt81fwmdat5"]
+[gd_scene load_steps=27 format=3 uid="uid://krt81fwmdat5"]
 
 [ext_resource type="Script" uid="uid://bswdkoh8aq2lv" path="res://Characters/dwarf.gd" id="1_jde8y"]
 [ext_resource type="Texture2D" uid="uid://nh6gq7kcecp5" path="res://Assets/Characters(100x100)/Dwarf/Dwarf Sprite Sheet.png" id="2_0odhl"]
@@ -30,10 +30,6 @@ region = Rect2(160, 128, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_058qh"]
 atlas = ExtResource("2_0odhl")
 region = Rect2(192, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ki7d"]
-atlas = ExtResource("2_0odhl")
-region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgumk"]
 atlas = ExtResource("2_0odhl")
@@ -128,16 +124,13 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ki7d")
-}, {
-"duration": 1.0,
+"duration": 1.6,
 "texture": SubResource("AtlasTexture_bgumk")
 }, {
-"duration": 1.0,
+"duration": 1.6,
 "texture": SubResource("AtlasTexture_yxfum")
 }, {
-"duration": 1.0,
+"duration": 1.6,
 "texture": SubResource("AtlasTexture_wb2vu")
 }],
 "loop": false,
@@ -199,12 +192,16 @@ script = ExtResource("1_jde8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ddomm")
-animation = &"death"
+animation = &"hurt"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="BombTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="BombAttackTimer" type="Timer" parent="BombTimer"]
+autostart = true
 
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]
 [connection signal="timeout" from="BombTimer/BombAttackTimer" to="." method="_on_bomb_attack_timer_timeout"]

@@ -1,12 +1,12 @@
 extends Node2D
 
 var speed=60
-var player=preload("res://player.tscn")
+var player_ref=null
 
 #Starting weapon
 var bomb = preload("res://Attacks/bomb.tscn")
-@onready var BombTimer=get_node("Attack/BombTimer")#Reloading time
-@onready var BombAttackTimer=get_node("Attack/BombTimer/BombAttackTimer") #Attack timer
+@onready var BombTimer=get_node("BombTimer")#Reloading time
+@onready var BombAttackTimer=get_node("BombTimer/BombAttackTimer") #Attack timer
 var BombSpeed=3.0 #How slow weapon is, the higher the number the slower the weapon
 var BombReloadSpeed=BombSpeed * PlayerStats.reload_reduction#Time to reload
 var BombAmmo = 0
@@ -26,9 +26,9 @@ func _on_bomb_timer_timeout() -> void:
 func _on_bomb_attack_timer_timeout() -> void:
 	if BombAmmo >0:
 		var BombAttack= bomb.instantiate()
-		get_tree().current_scene.add_child(BombAttack)
 		BombAttack.global_position = global_position
-		BombAttack.target=player.GetClosestTarget()
+		BombAttack.target=player_ref.GetClosestTarget()
+		add_child(BombAttack)
 		BombAmmo-=1
 		if BombAmmo > 0:
 			BombAttackTimer.start()
@@ -47,11 +47,9 @@ func animation():
 	else:
 		$AnimatedSprite2D.play("idle")
 func animation_hurt():
-	print("Hurt")
 	$AnimatedSprite2D.play('hurt')
 	
 func animation_death():
-	print("Smierc")
 	$AnimatedSprite2D.play('death')
 	await $AnimatedSprite2D.animation_finished
 	return 
