@@ -48,11 +48,9 @@ func animation():
 	else:
 		$AnimatedSprite2D.play("idle")
 func animation_hurt():
-	print("Hurt")
 	$AnimatedSprite2D.play('hurt')
 	
 func animation_death():
-	print("Smierc")
 	$AnimatedSprite2D.play('death')
 	await $AnimatedSprite2D.animation_finished
 	return 
