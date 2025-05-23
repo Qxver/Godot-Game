@@ -95,7 +95,7 @@ region = Rect2(192, 32, 32, 32)
 atlas = ExtResource("2_0odhl")
 region = Rect2(224, 32, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ddomm"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0odhl"]
 animations = [{
 "frames": [{
 "duration": 2.0,
@@ -191,17 +191,18 @@ animations = [{
 script = ExtResource("1_jde8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ddomm")
-animation = &"hurt"
+position = Vector2(-0.5, -10.25)
+scale = Vector2(0.84375, 0.734375)
+sprite_frames = SubResource("SpriteFrames_0odhl")
+animation = &"death"
 autoplay = "idle"
-frame = 2
+frame = 6
 frame_progress = 1.0
 
 [node name="BombTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="BombAttackTimer" type="Timer" parent="BombTimer"]
-autostart = true
 
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]
 [connection signal="timeout" from="BombTimer/BombAttackTimer" to="." method="_on_bomb_attack_timer_timeout"]
