@@ -325,10 +325,10 @@ layout_mode = 2
 [node name="Inv" type="ScrollContainer" parent="NinePatchRect"]
 z_index = 3
 layout_mode = 0
-offset_left = 5.88235
-offset_top = 148.16
-offset_right = 170.882
-offset_bottom = 235.16
+offset_left = 6.0
+offset_top = 148.0
+offset_right = 277.0
+offset_bottom = 235.0
 vertical_scroll_mode = 3
 
 [node name="InvContainer" type="GridContainer" parent="NinePatchRect/Inv"]

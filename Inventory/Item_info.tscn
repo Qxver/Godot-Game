@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfd7nchc8im5l"]
+[gd_scene load_steps=7 format=3 uid="uid://bfd7nchc8im5l"]
 
 [ext_resource type="Script" uid="uid://836036qj6e1s" path="res://Inventory/item_info.gd" id="1_hyr85"]
+[ext_resource type="Texture2D" uid="uid://co3hk5wg14u5k" path="res://Assets/Menu_assets/item_info_frame.png" id="2_3o2ct"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4lrk"]
+texture = ExtResource("2_3o2ct")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3o2ct"]
 font_size = 10
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4lrk"]
 font_size = 10
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0t0c"]
 font_size = 10
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="ItemInfo" type="Control"]
 z_index = 1
@@ -17,8 +24,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -561.0
-offset_bottom = -299.0
+offset_right = -560.0
+offset_bottom = -310.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hyr85")
@@ -30,29 +37,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p4lrk")
 
 [node name="Rarity" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 79.0
-offset_bottom = 20.0
-text = "asd"
+offset_top = 1.0
+offset_right = 80.0
+offset_bottom = 16.0
+text = "OUFAH!@#123"
 label_settings = SubResource("LabelSettings_3o2ct")
 horizontal_alignment = 1
 
 [node name="Type" type="Label" parent="Panel"]
 layout_mode = 0
-offset_top = 20.0
-offset_right = 79.0
-offset_bottom = 40.0
-text = "asd"
+offset_top = 17.0
+offset_right = 80.0
+offset_bottom = 32.0
+text = "OUFAH!@#123"
 label_settings = SubResource("LabelSettings_p4lrk")
 horizontal_alignment = 1
 
 [node name="Stats" type="Label" parent="Panel"]
 layout_mode = 0
-offset_top = 40.0
-offset_right = 79.0
-offset_bottom = 60.0
-text = "asd"
+offset_top = 33.0
+offset_right = 80.0
+offset_bottom = 48.0
+text = "OUFAH!@#123"
 label_settings = SubResource("LabelSettings_o0t0c")
 horizontal_alignment = 1

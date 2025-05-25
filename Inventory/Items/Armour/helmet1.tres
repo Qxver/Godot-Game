@@ -5,10 +5,15 @@
 
 [resource]
 script = ExtResource("1_h2nti")
-name = "helmet1"
+name = "Helmet"
 texture = ExtResource("2_cjbwy")
 item_type = 1
 deffence = 1
+attack = 0
+hp = 0
+xp = 0
+ats = 0
 buy_price = 0
 sell_price = 0
+rarity = 1
 metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"

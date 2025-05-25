@@ -50,8 +50,9 @@ visible = false
 z_index = 4
 layout_mode = 1
 offset_left = 24.0
-offset_right = 79.0
-offset_bottom = 37.0
+offset_top = 5.0
+offset_right = 80.0
+offset_bottom = 31.0
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
