@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 #Player related
 var speed = 100
 var is_dead = false
@@ -107,5 +106,3 @@ func _on_level_up_as_up() -> void:
 	PlayerStats.attack_speed += 15
 	attack()
 	
-func clamp_to_zero(wait_time)-> float:
-	return max(wait_time,0.01)	

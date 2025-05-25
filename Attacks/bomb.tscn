@@ -1,8 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://bifehpl75c3kk"]
+[gd_scene load_steps=11 format=3 uid="uid://bifehpl75c3kk"]
 
 [ext_resource type="Script" uid="uid://brb1af5kdmyeb" path="res://Attacks/bomb.gd" id="1_6xl18"]
+[ext_resource type="Texture2D" uid="uid://bc2jasywjkwrb" path="res://Assets/Bomb/bomb_boom.png" id="2_6xl18"]
 [ext_resource type="Texture2D" uid="uid://cmtwadks3pc3u" path="res://Assets/Bomb/bobm.png" id="2_ybevx"]
-[ext_resource type="Texture2D" uid="uid://dbuxf2skodt3y" path="res://Assets/Bomb/bobmexp.png" id="3_k8fgw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxyo4"]
+atlas = ExtResource("2_ybevx")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybevx"]
+atlas = ExtResource("2_6xl18")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8fgw"]
+atlas = ExtResource("2_6xl18")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qwhx"]
+atlas = ExtResource("2_6xl18")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxyo4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxyo4")
+}],
+"loop": true,
+"name": &"bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybevx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8fgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qwhx")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6vg5"]
 
@@ -13,14 +54,11 @@ radius = 40.0
 collision_layer = 5
 script = ExtResource("1_6xl18")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_ybevx")
-flip_h = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("3_k8fgw")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_pxyo4")
+animation = &"explosion"
+autoplay = "bomb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d6vg5")

@@ -8,7 +8,7 @@ var bow = preload("res://Attacks/bow.tscn")
 @onready var  BowTimer=get_node("BowTimer")#Reloading timer
 @onready var BowAttackTimer=get_node("BowTimer/BowAttackTimer") #Attack timer
 var BowSpeed=1.0 #How slow weapon is, the higher the number the slower the weapon
-var BowReloadSpeed=BowSpeed * PlayerStats.reload_reduction#Time to reload
+var BowReloadSpeed=(BowSpeed * ((100-PlayerStats.reload_reduction)/100))#Time to reload
 var BowAmmo=0
 var BowBaseAmmo=3
 
@@ -20,7 +20,7 @@ func attack():
 
 func _on_bow_timer_timeout():
 	BowAmmo=BowBaseAmmo
-	BowAttackTimer.wait_time=BowSpeed/((PlayerStats.attack_speed*0.01)*1)
+	BowAttackTimer.wait_time=(BowSpeed*(100-PlayerStats.reload_reduction))/(PlayerStats.attack_speed)
 	BowAttackTimer.start()
 	BowTimer.wait_time=BowSpeed * PlayerStats.reload_reduction
 	
@@ -48,11 +48,9 @@ func animation():
 	else:
 		$AnimatedSprite2D.play("idle")
 func animation_hurt():
-	print("Hurt")
 	$AnimatedSprite2D.play('hurt')
 	
 func animation_death():
-	print("Smierc")
 	$AnimatedSprite2D.play('death')
 	await $AnimatedSprite2D.animation_finished
 	return 

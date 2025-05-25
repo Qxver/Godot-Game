@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://7fjfkj807hlm"]
+
+[sub_resource type="GDScript" id="GDScript_vy0bb"]
+script/source = "extends Area2D
+class_name HurtBox
+
+
+"
+
+[node name="HurtBox" type="Area2D"]
+script = SubResource("GDScript_vy0bb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

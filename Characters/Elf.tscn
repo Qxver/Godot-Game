@@ -188,7 +188,7 @@ script = ExtResource("1_1tqwk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xa451")
-animation = &"walk"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="BowTimer" type="Timer" parent="."]
