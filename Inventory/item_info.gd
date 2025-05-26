@@ -10,13 +10,33 @@ func display_info(item: InvItems):
 func check_rarity(x: int):
 	match x:
 		1:
-			return(str("Helmet"))
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(155,155,155,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Common"))
 		2:
-			return(str("Chestplate"))
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(20,90,200,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Rare"))
 		3:
-			return(str("Leggings"))
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(95,0,160,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Epic"))
 		4:
-			return(str("Boots"))
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(200,210,20,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Legendary"))
 
 func check_type(x: int):
 	match x:
