@@ -37,6 +37,34 @@ func check_rarity(x: int):
 			ls.shadow_color = Color8(0,0,0,255)
 			$Panel/Rarity.label_settings = ls
 			return(str("Legendary"))
+		5:
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(95,0,160,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Amethyst"))
+		6:
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(10,250,10,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Emerald"))
+		7:
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(210,20,10,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Ruby"))
+		8:
+			var ls = LabelSettings.new()
+			ls.font_color = Color8(20,90,200,255)
+			ls.font_size = 10
+			ls.shadow_color = Color8(0,0,0,255)
+			$Panel/Rarity.label_settings = ls
+			return(str("Sapphire"))
 
 func check_type(x: int):
 	match x:

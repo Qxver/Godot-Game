@@ -16,6 +16,12 @@ func update(item: InvItems):
 		
 	else:
 		itemInSlot = item
+		if item.item_type<=4:
+			itemVis.scale = Vector2(0.13,0.13)
+		elif item.item_type == 8:
+			itemVis.scale = Vector2(0.7,0.7)
+		else:
+			itemVis.scale = Vector2(1.3,1.3)
 		$Frame.texture = frame
 		itemVis.texture = item.texture
 		itemVis.visible = true

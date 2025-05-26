@@ -31,7 +31,7 @@ func resume():
 	hide()
  
 func pause():
-	PlayerStats.inventory+=[preload("res://Inventory/Items/Armour/boots4.tres"),preload("res://Inventory/Items/Armour/helmet4.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Armour/leggings4.tres")]
+	PlayerStats.inventory+=[preload("res://Inventory/Items/Accessories/amethyst_belt.tres"),preload("res://Inventory/Items/Accessories/emerald_ring.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Accessories/emerald_necklace.tres")]
 	InputMap.action_erase_events("esc")
 	update_slots()
 	show()
@@ -70,6 +70,18 @@ func equip(item: InvItems,index):
 			handle_slot_swap(slot, index, item)
 		4:
 			slot = $NinePatchRect/Equipment/Armour/GridContainer/Boots
+			handle_slot_swap(slot, index, item)
+		5:
+			slot = $NinePatchRect/Equipment/Accessories/Necklace
+			handle_slot_swap(slot, index, item)
+		6:
+			slot = $NinePatchRect/Equipment/Accessories/Ring
+			handle_slot_swap(slot, index, item)
+		7:
+			slot = $NinePatchRect/Equipment/Accessories/Bracelet
+			handle_slot_swap(slot, index, item)
+		8:
+			slot = $NinePatchRect/Equipment/Accessories/Belt
 			handle_slot_swap(slot, index, item)
 
 func handle_slot_swap(slot, index, item):

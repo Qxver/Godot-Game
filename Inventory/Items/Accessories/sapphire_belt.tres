@@ -15,4 +15,5 @@ xp = 0
 ats = 10
 buy_price = 0
 sell_price = 0
+rarity = 8
 metadata/_custom_type_script = "uid://dw7xqwqvj4rxn"
