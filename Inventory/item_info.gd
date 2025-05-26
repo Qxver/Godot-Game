@@ -84,3 +84,12 @@ func check_type(x: int):
 			return(str("Ring"))
 		8:
 			return(str("Belt"))
+
+func check_stats(item: InvItems):
+	if item.item_type<=4:
+		return("Def + "+str(item.deffence))
+	else:
+		pass
+		match item.item_type:
+			5:
+				pass

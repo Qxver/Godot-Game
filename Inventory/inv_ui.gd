@@ -3,7 +3,7 @@ extends Control
 @onready var slots : Array =  $NinePatchRect/Inv/InvContainer.get_children()
 
 func _ready():
-	PlayerStats.inventory=[preload("res://Inventory/Items/Armour/chestplate3.tres"),preload("res://Inventory/Items/Armour/chestplate1.tres"),preload("res://Inventory/Items/Armour/chestplate3.tres")]
+	PlayerStats.inventory=[preload("res://Inventory/Items/Armour/boots2.tres"),preload("res://Inventory/Items/Armour/chestplate1.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Armour/leggings1.tres"),preload("res://Inventory/Items/Armour/helmet2.tres"),preload("res://Inventory/Items/Armour/chestplate3.tres")]
 	hide()
 
 func update_slots():
@@ -27,12 +27,10 @@ func resume():
 	$Coins/Coin.stop()
 	$Character2.stop()
 	get_tree().paused = false
-	InputMap.load_from_project_settings()
 	hide()
  
 func pause():
 	PlayerStats.inventory+=[preload("res://Inventory/Items/Accessories/amethyst_belt.tres"),preload("res://Inventory/Items/Accessories/emerald_ring.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Accessories/emerald_necklace.tres")]
-	InputMap.action_erase_events("esc")
 	update_slots()
 	show()
 	get_tree().paused = true
@@ -40,7 +38,7 @@ func pause():
 func testInv():
 	if Input.is_action_just_pressed("inv") and !get_tree().paused:
 		pause()
-	elif Input.is_action_just_pressed("inv") and get_tree().paused:
+	elif Input.is_action_just_pressed("inv") or Input.is_action_just_pressed("esc") and get_tree().paused:
 		resume()
 
 func _process(_delta):

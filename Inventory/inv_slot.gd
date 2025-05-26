@@ -20,6 +20,9 @@ func update(item: InvItems):
 			itemVis.scale = Vector2(0.13,0.13)
 		elif item.item_type == 8:
 			itemVis.scale = Vector2(0.7,0.7)
+		elif item.item_type == 7:
+			itemVis.scale = Vector2(1.3,1.3)
+			itemVis.position = Vector2(0,-1)
 		else:
 			itemVis.scale = Vector2(1.3,1.3)
 		$Frame.texture = frame
