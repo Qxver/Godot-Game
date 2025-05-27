@@ -21,7 +21,8 @@ func pause():
 	$AnimationPlayer.play("blur")
 	
 func _on_damage_button_down() -> void:
-	PlayerStats.damage += 10
+	PlayerStats.base_dmg += 10
+	PlayerStats.update_stats()
 	resume()
 
 func _on_attack_speed_button_down() -> void:
@@ -29,5 +30,6 @@ func _on_attack_speed_button_down() -> void:
 	resume()
 
 func _on_health_button_down() -> void:
-	PlayerStats.max_hp += 20
+	PlayerStats.base_hp += 20
+	PlayerStats.update_stats()
 	resume()

@@ -103,6 +103,7 @@ func _process(delta) -> void:
 			health_depleted.emit()
 			
 func _on_level_up_as_up() -> void:
-	PlayerStats.attack_speed += 15
+	PlayerStats.base_ats += 15
+	PlayerStats.update_stats()
 	attack()
 	
