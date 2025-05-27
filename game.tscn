@@ -171,11 +171,12 @@ size_flags_vertical = 4
 
 [node name="TimerMobSpawn" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
 autostart = true
 
 [node name="TimerEliteSpawn" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 15.0
+wait_time = 30.0
 autostart = true
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

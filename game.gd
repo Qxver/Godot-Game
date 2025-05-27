@@ -59,8 +59,8 @@ func _on_timer_timeout2() -> void:
 var time_passed = 0
 func _physics_process(delta: float) -> void:
 	time_passed += delta
-	if %TimerMobSpawn.wait_time >= 0.1:
-		if time_passed >= 10:
+	if %TimerMobSpawn.wait_time > 0.1:
+		if time_passed >= 5:
 			time_passed = 0
 			%TimerMobSpawn.wait_time -= 0.1
 			
