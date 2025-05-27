@@ -13,18 +13,14 @@ func resume():
 	hide()
 
 func _on_human_pressed() -> void:
-	PlayerStats.damage = 30
-	PlayerStats.health = 100
-	PlayerStats.max_hp = 100
+	PlayerStats.player_base_stats(1)
 	PlayerStats.character_id=1
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game.tscn")
 
 
 func _on_dwarf_pressed() -> void:
-	PlayerStats.damage = 40
-	PlayerStats.health = 150
-	PlayerStats.max_hp = 150
+	PlayerStats.player_base_stats(2)
 	PlayerStats.character_id=2
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game.tscn")

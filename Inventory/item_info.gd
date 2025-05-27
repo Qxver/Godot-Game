@@ -91,7 +91,7 @@ func check_type(x: int):
 
 func check_stats(item: InvItems):
 	if item.item_type<=4:
-		return("Def + "+str(item.deffence))
+		return("Def + "+str(item.defence))
 	else:
 		match item.rarity:
 			5:
