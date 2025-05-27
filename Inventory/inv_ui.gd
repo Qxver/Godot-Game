@@ -7,7 +7,15 @@ func _ready():
 	hide()
 
 func update_slots():
-	$Character2.play("character")
+	match PlayerStats.character_id:
+		1:
+			$Character2.scale = Vector2(5,5)
+			$Character2.position = Vector2(319,134)
+			$Character2.play("Human")
+		2:
+			$Character2.scale = Vector2(4,4)
+			$Character2.position = Vector2(313,117)
+			$Character2.play("Dwarf")
 	$Coins/Coin.play("coin")
 	update_stats()
 	$Coins/coin_amount.text = str(PlayerStats.coins)

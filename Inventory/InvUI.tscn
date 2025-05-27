@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://d4hmqtouiu3qi"]
+[gd_scene load_steps=36 format=3 uid="uid://d4hmqtouiu3qi"]
 
 [ext_resource type="Script" uid="uid://sskwaoewx6q0" path="res://Inventory/inv_ui.gd" id="1_ughb5"]
 [ext_resource type="Texture2D" uid="uid://dw5r2dayj38p2" path="res://Assets/Menu_assets/frame.png" id="2_3klia"]
 [ext_resource type="Texture2D" uid="uid://cig71lm7hhm6e" path="res://Assets/Menu_assets/character_frame.png" id="2_67srk"]
+[ext_resource type="Texture2D" uid="uid://nh6gq7kcecp5" path="res://Assets/Characters(100x100)/Dwarf/Dwarf Sprite Sheet.png" id="2_qoah3"]
 [ext_resource type="Texture2D" uid="uid://ciinxspg8if6o" path="res://Assets/Menu_assets/Soldier-Idle-menu.png" id="2_rqxd6"]
 [ext_resource type="Texture2D" uid="uid://cu7wowh2548t2" path="res://Assets/Menu_assets/dmg.png" id="3_35ghd"]
 [ext_resource type="Texture2D" uid="uid://c4kx7uuk01x77" path="res://Assets/Items/coin_spin-Sheet.png" id="3_ks0ad"]
@@ -10,6 +11,26 @@
 [ext_resource type="Texture2D" uid="uid://dul2c5rwo8giw" path="res://Assets/Menu_assets/hp.png" id="5_c68me"]
 [ext_resource type="Texture2D" uid="uid://b3ateisudmq2n" path="res://Assets/Menu_assets/def.png" id="6_ig2n5"]
 [ext_resource type="PackedScene" uid="uid://ixbrp0fri5jl" path="res://Inventory/inv_slot.tscn" id="7_35ghd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s2v8"]
+atlas = ExtResource("2_qoah3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yswy"]
+atlas = ExtResource("2_qoah3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5k2b"]
+atlas = ExtResource("2_qoah3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tvlg"]
+atlas = ExtResource("2_qoah3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuft0"]
+atlas = ExtResource("2_qoah3")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ks0ad"]
 atlas = ExtResource("2_rqxd6")
@@ -39,6 +60,26 @@ region = Rect2(85, 0, 17, 22)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0s2v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yswy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5k2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tvlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuft0")
+}],
+"loop": true,
+"name": &"Dwarf",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ks0ad")
 }, {
 "duration": 1.0,
@@ -57,7 +98,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pwmn1")
 }],
 "loop": true,
-"name": &"character",
+"name": &"Human",
 "speed": 5.0
 }]
 
@@ -160,7 +201,7 @@ z_index = 2
 position = Vector2(319, 134)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_i0ny4")
-animation = &"character"
+animation = &"Dwarf"
 script = SubResource("GDScript_qoah3")
 
 [node name="Coins" type="NinePatchRect" parent="."]
