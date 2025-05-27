@@ -5,7 +5,7 @@ class_name item_info
 func display_info(item: InvItems):
 	$Panel/Rarity.text = check_rarity(item.rarity)
 	$Panel/Type.text = check_type(item.item_type)
-	$Panel/Stats.text = "Def + "+str(item.deffence)
+	$Panel/Stats.text = check_stats(item)
 	
 func check_rarity(x: int):
 	match x:
@@ -43,6 +43,7 @@ func check_rarity(x: int):
 			ls.font_size = 10
 			ls.shadow_color = Color8(0,0,0,255)
 			$Panel/Rarity.label_settings = ls
+			$Panel/Stats.label_settings = ls
 			return(str("Amethyst"))
 		6:
 			var ls = LabelSettings.new()
@@ -50,6 +51,7 @@ func check_rarity(x: int):
 			ls.font_size = 10
 			ls.shadow_color = Color8(0,0,0,255)
 			$Panel/Rarity.label_settings = ls
+			$Panel/Stats.label_settings = ls
 			return(str("Emerald"))
 		7:
 			var ls = LabelSettings.new()
@@ -57,6 +59,7 @@ func check_rarity(x: int):
 			ls.font_size = 10
 			ls.shadow_color = Color8(0,0,0,255)
 			$Panel/Rarity.label_settings = ls
+			$Panel/Stats.label_settings = ls
 			return(str("Ruby"))
 		8:
 			var ls = LabelSettings.new()
@@ -64,6 +67,7 @@ func check_rarity(x: int):
 			ls.font_size = 10
 			ls.shadow_color = Color8(0,0,0,255)
 			$Panel/Rarity.label_settings = ls
+			$Panel/Stats.label_settings = ls
 			return(str("Sapphire"))
 
 func check_type(x: int):
@@ -89,7 +93,12 @@ func check_stats(item: InvItems):
 	if item.item_type<=4:
 		return("Def + "+str(item.deffence))
 	else:
-		pass
-		match item.item_type:
+		match item.rarity:
 			5:
-				pass
+				return("Dmg x"+str(item.attack))
+			6:
+				return("XP x"+str(item.xp))
+			7:
+				return("Hp x"+str(item.hp))
+			8:
+				return("Ats x"+str(item.ats))

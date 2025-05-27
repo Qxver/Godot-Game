@@ -30,7 +30,7 @@ func resume():
 	hide()
  
 func pause():
-	PlayerStats.inventory+=[preload("res://Inventory/Items/Accessories/amethyst_belt.tres"),preload("res://Inventory/Items/Accessories/emerald_ring.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Accessories/emerald_necklace.tres")]
+	PlayerStats.inventory+=[preload("res://Inventory/Items/Accessories/amethyst_belt.tres"),preload("res://Inventory/Items/Accessories/emerald_ring.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Accessories/sapphire_belt.tres")]
 	update_slots()
 	show()
 	get_tree().paused = true
@@ -38,7 +38,7 @@ func pause():
 func testInv():
 	if Input.is_action_just_pressed("inv") and !get_tree().paused:
 		pause()
-	elif Input.is_action_just_pressed("inv") or Input.is_action_just_pressed("esc") and get_tree().paused:
+	elif Input.is_action_just_pressed("inv") or (Input.is_action_just_pressed("esc") and self.visible) and get_tree().paused:
 		resume()
 
 func _process(_delta):
@@ -101,7 +101,7 @@ func replace_item(index, old_item, new_item):
 	return new_item
 
 func update_stats():
-	%Dmg_val.text = str(PlayerStats.damage)
-	%Ats_val.text = str(PlayerStats.attack_speed)
-	%Hp_val.text = str(int(PlayerStats.health)) + "/" + str(PlayerStats.max_hp)
-	%Def_val.text = str(PlayerStats.defence)
+	%Dmg_val.text = str(int(PlayerStats.damage))
+	%Ats_val.text = str(int(PlayerStats.attack_speed))
+	%Hp_val.text = str(int(PlayerStats.health)) + "/" + str(int(PlayerStats.max_hp))
+	%Def_val.text = str(int(PlayerStats.defence))
