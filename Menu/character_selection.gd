@@ -5,6 +5,9 @@ func _ready():
 	show()
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
+	
+	var music = load("res://Assets/Sound/Soundtrack/Main_menu_track.wav")
+	SoundManager.play_audio(music)
 
 func resume():
 	get_tree().paused = false

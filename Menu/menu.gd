@@ -15,3 +15,9 @@ func _on_options_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+	
+
+# background music
+func _ready() -> void:
+	var music = load("res://Assets/Sound/Soundtrack/Main_menu_track.wav")
+	SoundManager.play_audio(music)
