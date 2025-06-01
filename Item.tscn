@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4l77rolbi8o2"]
+[gd_scene load_steps=5 format=3 uid="uid://c4l77rolbi8o2"]
 
 [ext_resource type="Texture2D" uid="uid://c4kx7uuk01x77" path="res://Assets/Items/coin_spin-Sheet.png" id="1_bp1wp"]
 [ext_resource type="Script" uid="uid://swx137lx71ly" path="res://item.gd" id="1_ph0dh"]
+[ext_resource type="AudioStream" uid="uid://c1ba8sktqllpq" path="res://Assets/Sound/Effects/04_sack_open_2.wav" id="3_6m5p0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ul1"]
 size = Vector2(6, 6)
@@ -19,5 +20,8 @@ region_rect = Rect2(0, 0, 80, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m5ul1")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6m5p0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

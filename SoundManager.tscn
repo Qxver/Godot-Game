@@ -5,4 +5,6 @@
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_lcfxu")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]

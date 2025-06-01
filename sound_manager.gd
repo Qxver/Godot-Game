@@ -1,13 +1,17 @@
 extends Node
 
-@onready var music_player = $AudioStreamPlayer
+@onready var soundtrack = $Soundtrack
+@onready var pickup_sound = $PickupSound
+
 var current_music_path: String = ""
 
-func play_audio(music: AudioStream):
-	if music_player.playing and music.resource_path == current_music_path:
-		print("Already playing:", current_music_path)
+func play_soundtrack(music: AudioStream):
+	if soundtrack.playing and music.resource_path == current_music_path:
 		return
 	current_music_path = music.resource_path
-	music_player.stream = music
-	music_player.play()
-	print("Now playing:", current_music_path)
+	soundtrack.stream = music
+	soundtrack.play()
+
+func play_audio(audio: AudioStream):
+	pickup_sound.stream = audio
+	pickup_sound.play()

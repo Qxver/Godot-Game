@@ -5,6 +5,7 @@ var item
 var item_type: int
 var armour_type: int
 var accessory_type: int
+@onready var pickup_sound: AudioStreamPlayer2D = $PickupSound
 
 # preloading items
 var coin = preload("res://Assets/Items/coin_spin-Sheet.png")
@@ -71,7 +72,12 @@ func _ready() -> void:
 		
 # item collection and item action on pickup
 func _on_body_entered(body: Node2D) -> void:
+	print("Body entered: ", body)
 	collected.emit()
+	
+	var audio = preload("res://Assets/Sound/Effects/04_sack_open_2.wav")  
+	SoundManager.play_audio(audio)
+	
 	if item_type == 1:
 		PlayerStats.health += 20
 		if PlayerStats.health >= PlayerStats.max_hp:
