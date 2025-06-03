@@ -12,6 +12,9 @@ var target = Vector2.ZERO
 
 #setting rotation to enemy
 func _ready() -> void:
+	SoundManager.sound_effect.volume_db = -15
+	var audio = preload("res://Assets/Sound/Effects/arrow-swish_03-306040.mp3")  
+	SoundManager.play_audio(audio)
 	add_to_group("Attacks")
 	rotation = target.angle() + deg_to_rad(180)	
 

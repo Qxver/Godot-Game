@@ -72,17 +72,14 @@ func _ready() -> void:
 		
 # item collection and item action on pickup
 func _on_body_entered(body: Node2D) -> void:
-	print("Body entered: ", body)
 	collected.emit()
-	
 	var audio = preload("res://Assets/Sound/Effects/04_sack_open_2.wav")  
-	SoundManager.play_audio(audio)
+	SoundManager.play_audio(audio) # pickup audio
 	
 	if item_type == 1:
 		PlayerStats.health += 20
 		if PlayerStats.health >= PlayerStats.max_hp:
 			PlayerStats.health = PlayerStats.max_hp
 	elif item_type!=0 and item_type!=1:
-		print("Podniesiono przedmiot:  "+str(item_pool[item_type][armour_type]))
 		PlayerStats.inventory.append(item_pool[item_type][armour_type])
 	queue_free()

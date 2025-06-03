@@ -36,6 +36,8 @@ func DealDamage():
 	return PlayerStats.damage*damage_multiplier
 	
 func explosion() -> void:
+	var audio = preload("res://Assets/Sound/Effects/Retro_Impact_20.wav")  
+	SoundManager.play_audio(audio)
 	can_move=false
 	$Explosion.disabled=false
 	damage_multiplier = 2.0

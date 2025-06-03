@@ -76,8 +76,7 @@ func _physics_process(delta: float) -> void:
 			
 func _ready() -> void:
 	load_game() # load game stats on start
-	var music = preload("res://Assets/Sound/Soundtrack/Gameplay_track.wav")
-	SoundManager.play_soundtrack(music)
+	SoundManager.play_soundtrack2() # soundtrack
 	
 	randomize()
 	%TimeLabel.set_text("0:00")

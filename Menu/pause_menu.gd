@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	hide()
 	$AnimationPlayer.play("RESET")
+	
 
 func resume():
 	$AnimationPlayer.play_backwards("blur")

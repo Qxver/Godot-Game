@@ -7,4 +7,5 @@ script = ExtResource("1_lcfxu")
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 
-[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+[node name="SoundEffects" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0

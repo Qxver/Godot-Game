@@ -14,7 +14,6 @@ var BowBaseAmmo=3
 
 func attack():
 	BowTimer.wait_time=BowReloadSpeed
-	print(BowTimer.wait_time)
 	if BowTimer.is_stopped():
 		BowTimer.start()
 

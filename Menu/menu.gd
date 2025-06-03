@@ -19,5 +19,6 @@ func _on_exit_pressed() -> void:
 
 # background music
 func _ready() -> void:
-	var music = load("res://Assets/Sound/Soundtrack/Main_menu_track.wav")
-	SoundManager.play_soundtrack(music)
+	SoundManager.Soundtrack1Progress = 0.0
+	SoundManager.Soundtrack2Progress = 0.0
+	SoundManager.play_soundtrack1() # menu soundtrack
