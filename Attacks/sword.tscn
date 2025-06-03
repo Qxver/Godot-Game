@@ -1,12 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://beghlspjp51yn"]
+[gd_scene load_steps=4 format=3 uid="uid://beghlspjp51yn"]
 
 [ext_resource type="Script" uid="uid://cpf2wjqou5vw" path="res://Attacks/sword.gd" id="1_qwkou"]
+[ext_resource type="Texture2D" uid="uid://ek63ydcvpjk" path="res://Assets/Sword/swing.png" id="2_hejha"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k1axj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4no8"]
+size = Vector2(108, 164)
 
-[node name="Prayer" type="Area2D"]
+[node name="Sword" type="Area2D"]
 script = ExtResource("1_qwkou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -5)
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_k1axj")
+shape = SubResource("RectangleShape2D_l4no8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Spirte2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hejha")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
