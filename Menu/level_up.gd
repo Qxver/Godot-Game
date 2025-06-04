@@ -5,10 +5,7 @@ signal as_up
 func _ready():
 	hide()
 	$AnimationPlayer.play("RESET")
-	
-	# do naprawy bo nie dziala w lvl-up dzwiek
-	SoundManager.Soundtrack2Progress = SoundManager.soundtrack.get_playback_position()
-	SoundManager.play_soundtrack2()
+
 
 func resume():
 	$AnimationPlayer.play_backwards("blur")

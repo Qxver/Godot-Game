@@ -1,7 +1,10 @@
 extends Control
+var click_sound = preload("res://Assets/Sound/Effects/mixkit-modern-technology-select-3124.wav")  
 
 
 func _on_play_pressed() -> void:
+	SoundManager.play_audio(click_sound)
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://Menu/character_selection.tscn")
 
 
@@ -14,6 +17,8 @@ func _on_options_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
+	SoundManager.play_audio(click_sound)
+	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 	
 

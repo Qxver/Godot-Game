@@ -1,5 +1,6 @@
 extends Control
 
+
 func _ready():
 	hide()
 	$AnimationPlayer.play("RESET")
@@ -36,6 +37,7 @@ func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")
 
 func _on_quit_pressed():
+	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 
 func _process(_delta):
