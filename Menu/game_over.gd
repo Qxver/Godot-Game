@@ -16,6 +16,8 @@ func pause():
 	$AnimationPlayer.play("go_blur")
 	
 func _on_restart_pressed():
+	print(SoundManager.Soundtrack2Progress)
+	SoundManager.Soundtrack2Progress = 0.0
 	InputMap.load_from_project_settings()
 	PlayerStats.player_base_stats(PlayerStats.character_id)
 	resume()

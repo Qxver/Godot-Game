@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 			
 func _ready() -> void:
 	load_game() # load game stats on start
+	print(SoundManager.Soundtrack2Progress)
 	SoundManager.play_soundtrack2() # soundtrack
 	
 	randomize()
