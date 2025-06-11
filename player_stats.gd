@@ -63,3 +63,9 @@ func player_base_stats(x: int):
 			health = 150
 			max_hp = 150
 			base_hp = 150
+		3:
+			damage = 50
+			base_dmg = 50
+			health = 125
+			max_hp = 125
+			base_hp = 125

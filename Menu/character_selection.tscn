@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://cfpfd81vfaxec"]
+[gd_scene load_steps=51 format=3 uid="uid://cfpfd81vfaxec"]
 
 [ext_resource type="Script" uid="uid://vcbqumwi4knx" path="res://Menu/character_selection.gd" id="1_edh8k"]
 [ext_resource type="Shader" uid="uid://dj5shm1fmp5yv" path="res://Menu/pause_menu.gdshader" id="2_5ofxg"]
 [ext_resource type="Texture2D" uid="uid://nh6gq7kcecp5" path="res://Assets/Characters(100x100)/Dwarf/Dwarf Sprite Sheet.png" id="3_nic03"]
 [ext_resource type="Texture2D" uid="uid://0xtjw0fyn7yt" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="4_6hb31"]
 [ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="4_nbesv"]
+[ext_resource type="Texture2D" uid="uid://b1osh274n0hy0" path="res://Assets/Characters(100x100)/Human/Adventure_Character_Simple.png" id="6_37r7x"]
 [ext_resource type="Texture2D" uid="uid://bvf0u3rtycd7j" path="res://Assets/Menu_assets/62118b54-50e2-4d79-8502-e9c9afc7faf6.jpg" id="6_nbesv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
@@ -232,6 +233,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp36b"]
+atlas = ExtResource("6_37r7x")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obh35"]
+atlas = ExtResource("6_37r7x")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpd2q"]
+atlas = ExtResource("6_37r7x")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sdu5"]
+atlas = ExtResource("6_37r7x")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4cmt"]
+atlas = ExtResource("6_37r7x")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0fbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp36b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obh35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpd2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sdu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4cmt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Animation" id="Animation_6hb31"]
 length = 0.001
 tracks/0/type = "value"
@@ -380,18 +424,18 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Human" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="Elf" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Human"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Elf"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 20
 
-[node name="HumanAnim" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer/Human/VBoxContainer"]
+[node name="HumanAnim" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer/Elf/VBoxContainer"]
 position = Vector2(50, 50)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nic03")
@@ -399,7 +443,7 @@ animation = &"idle"
 autoplay = "idle"
 script = SubResource("GDScript_6hb31")
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/Human/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/Elf/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -437,7 +481,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "HP: 150
 DMG: 40
-SPEED: 100"
+SPEED: 65"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -447,11 +491,11 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+[node name="Human" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer3/Button"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer3/Human"]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 0
 offset_left = 2.0
@@ -459,22 +503,20 @@ offset_top = -1.0
 offset_right = 102.0
 offset_bottom = 149.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer3/Button/VBoxContainer"]
-modulate = Color(0.0505108, 0.0505108, 0.0505108, 1)
-position = Vector2(50, 50)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_nic03")
-animation = &"idle"
-autoplay = "idle"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/VBoxContainer3/Human/VBoxContainer"]
+position = Vector2(49.5, 46.5)
+scale = Vector2(3.14583, 3.14583)
+sprite_frames = SubResource("SpriteFrames_u0fbi")
+autoplay = "default"
 script = SubResource("GDScript_6hb31")
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3/Button/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3/Human/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-text = "HP: ???
-DMG: ??
-SPEED: ???"
+text = "HP: 125
+DMG: 50
+SPEED: 75"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -497,5 +539,6 @@ libraries = {
 autoplay = "background"
 speed_scale = 0.05
 
-[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/Human" to="." method="_on_human_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/Elf" to="." method="_on_elf_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer2/dwarf" to="." method="_on_dwarf_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer3/Human" to="." method="_on_human_pressed"]

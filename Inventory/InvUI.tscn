@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d4hmqtouiu3qi"]
+[gd_scene load_steps=42 format=3 uid="uid://d4hmqtouiu3qi"]
 
 [ext_resource type="Script" uid="uid://sskwaoewx6q0" path="res://Inventory/inv_ui.gd" id="1_ughb5"]
 [ext_resource type="Texture2D" uid="uid://dw5r2dayj38p2" path="res://Assets/Menu_assets/frame.png" id="2_3klia"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cu7wowh2548t2" path="res://Assets/Menu_assets/dmg.png" id="3_35ghd"]
 [ext_resource type="Texture2D" uid="uid://c4kx7uuk01x77" path="res://Assets/Items/coin_spin-Sheet.png" id="3_ks0ad"]
 [ext_resource type="Texture2D" uid="uid://cph2xij715g3n" path="res://Assets/Menu_assets/ats.png" id="4_epqjb"]
+[ext_resource type="Texture2D" uid="uid://b1osh274n0hy0" path="res://Assets/Characters(100x100)/Human/Adventure_Character_Simple.png" id="4_lgfsv"]
 [ext_resource type="Texture2D" uid="uid://dul2c5rwo8giw" path="res://Assets/Menu_assets/hp.png" id="5_c68me"]
 [ext_resource type="Texture2D" uid="uid://b3ateisudmq2n" path="res://Assets/Menu_assets/def.png" id="6_ig2n5"]
 [ext_resource type="PackedScene" uid="uid://ixbrp0fri5jl" path="res://Inventory/inv_slot.tscn" id="7_35ghd"]
@@ -56,6 +57,26 @@ region = Rect2(68, 0, 17, 22)
 atlas = ExtResource("2_rqxd6")
 region = Rect2(85, 0, 17, 22)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp36b"]
+atlas = ExtResource("4_lgfsv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obh35"]
+atlas = ExtResource("4_lgfsv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpd2q"]
+atlas = ExtResource("4_lgfsv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sdu5"]
+atlas = ExtResource("4_lgfsv")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4cmt"]
+atlas = ExtResource("4_lgfsv")
+region = Rect2(240, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0ny4"]
 animations = [{
 "frames": [{
@@ -96,6 +117,26 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pwmn1")
+}],
+"loop": true,
+"name": &"Elf",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp36b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obh35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpd2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sdu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4cmt")
 }],
 "loop": true,
 "name": &"Human",
@@ -201,7 +242,8 @@ z_index = 2
 position = Vector2(319, 134)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_i0ny4")
-animation = &"Dwarf"
+animation = &"Human"
+frame_progress = 0.0506288
 script = SubResource("GDScript_qoah3")
 
 [node name="Coins" type="NinePatchRect" parent="."]
