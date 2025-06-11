@@ -1,8 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8ur32a8cy8pf"]
+[gd_scene load_steps=7 format=3 uid="uid://b8ur32a8cy8pf"]
 
 [ext_resource type="Script" uid="uid://b5630wch0f6vd" path="res://Menu/menu.gd" id="1_lti8b"]
-[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="2_ihied"]
 [ext_resource type="Script" uid="uid://bcmix7u0pvb58" path="res://Menu/button.gd" id="2_raj00"]
+[ext_resource type="Texture2D" uid="uid://bvf0u3rtycd7j" path="res://Assets/Menu_assets/62118b54-50e2-4d79-8502-e9c9afc7faf6.jpg" id="3_raj00"]
+
+[sub_resource type="Animation" id="Animation_spp5a"]
+resource_name = "background"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(320.011, 180), Vector2(360.011, 180), Vector2(320.011, 180), Vector2(280.011, 180), Vector2(320.011, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_dfoeg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320.011, 180)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihxxc"]
+_data = {
+&"RESET": SubResource("Animation_dfoeg"),
+&"background": SubResource("Animation_spp5a")
+}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -42,20 +80,29 @@ script = ExtResource("2_raj00")
 layout_mode = 2
 text = "Shop"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Options"
+text = "Credits
+"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
 [node name="menu_background" type="Sprite2D" parent="."]
-position = Vector2(319, 180)
-scale = Vector2(0.91261, 0.884176)
-texture = ExtResource("2_ihied")
+z_index = -5
+position = Vector2(320.011, 180)
+scale = Vector2(0.791209, 0.791209)
+texture = ExtResource("3_raj00")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ihxxc")
+}
+autoplay = "background"
+speed_scale = 0.05
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Shop" to="." method="_on_shop_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

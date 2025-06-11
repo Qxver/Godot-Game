@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://biq8hfac8yrrh"]
+[gd_scene load_steps=9 format=3 uid="uid://biq8hfac8yrrh"]
 
 [ext_resource type="Script" uid="uid://clx8k8tfuwtfs" path="res://Menu/options_menu.gd" id="1_lbr8e"]
-[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="2_8xge3"]
 [ext_resource type="Script" uid="uid://bcmix7u0pvb58" path="res://Menu/button.gd" id="2_e6ty2"]
+[ext_resource type="Texture2D" uid="uid://bvf0u3rtycd7j" path="res://Assets/Menu_assets/62118b54-50e2-4d79-8502-e9c9afc7faf6.jpg" id="2_spp5a"]
+[ext_resource type="LabelSettings" uid="uid://uhmhj7dxup6d" path="res://Assets/Menu_assets/credits_label.tres" id="4_spp5a"]
+[ext_resource type="LabelSettings" uid="uid://bg83m0wm7t53p" path="res://Assets/Menu_assets/credits_label_2.tres" id="5_dfoeg"]
+
+[sub_resource type="Animation" id="Animation_spp5a"]
+resource_name = "background"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(320.011, 180), Vector2(360.011, 180), Vector2(320.011, 180), Vector2(280.011, 180), Vector2(320.011, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_dfoeg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320.011, 180)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihxxc"]
+_data = {
+&"RESET": SubResource("Animation_dfoeg"),
+&"background": SubResource("Animation_spp5a")
+}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -15,32 +55,111 @@ script = ExtResource("1_lbr8e")
 metadata/_edit_horizontal_guides_ = [180.0]
 metadata/_edit_vertical_guides_ = [320.0]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="menu_background" type="Sprite2D" parent="."]
+position = Vector2(320.011, 180)
+scale = Vector2(0.791209, 0.791209)
+texture = ExtResource("2_spp5a")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -37.0
+offset_right = 43.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+script = ExtResource("2_e6ty2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -20.0
-offset_right = 22.5
-offset_bottom = 20.0
+offset_left = -224.5
+offset_top = -173.0
+offset_right = 224.5
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-z_index = 1
+[node name="Creators" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Creators"]
 layout_mode = 2
-text = "Back"
-script = ExtResource("2_e6ty2")
+text = "CREATED BY"
+label_settings = ExtResource("4_spp5a")
+horizontal_alignment = 1
 
-[node name="menu_background" type="Sprite2D" parent="."]
-position = Vector2(319, 180)
-scale = Vector2(0.91261, 0.884176)
-texture = ExtResource("2_8xge3")
+[node name="Label2" type="Label" parent="VBoxContainer/Creators"]
+layout_mode = 2
+text = "Kajetan Rygiel
+Wojciech Paradziński
+Bartosz Sebastian"
+label_settings = ExtResource("5_dfoeg")
+horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="Label3" type="Label" parent="VBoxContainer/Creators"]
+layout_mode = 2
+text = "ASSETS"
+label_settings = ExtResource("4_spp5a")
+horizontal_alignment = 1
+
+[node name="Assets" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Assets"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Assets/VBoxContainer2"]
+layout_mode = 2
+text = "ART"
+label_settings = ExtResource("4_spp5a")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Assets/VBoxContainer2"]
+layout_mode = 2
+text = "BDragon1727
+Elthen's Pixel Art Shop
+dustdfg
+RDBI
+	Zerie
+craftpix.net"
+label_settings = ExtResource("5_dfoeg")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Assets"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/Assets/VBoxContainer"]
+layout_mode = 2
+text = "SOUNDS"
+label_settings = ExtResource("4_spp5a")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/Assets/VBoxContainer"]
+layout_mode = 2
+text = "Leohpaz
+	Kronbits
+DJARTMUSIC"
+label_settings = ExtResource("5_dfoeg")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ihxxc")
+}
+autoplay = "background"
+speed_scale = 0.05
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

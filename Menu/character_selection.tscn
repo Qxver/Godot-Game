@@ -1,11 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://cfpfd81vfaxec"]
+[gd_scene load_steps=44 format=3 uid="uid://cfpfd81vfaxec"]
 
 [ext_resource type="Script" uid="uid://vcbqumwi4knx" path="res://Menu/character_selection.gd" id="1_edh8k"]
 [ext_resource type="Shader" uid="uid://dj5shm1fmp5yv" path="res://Menu/pause_menu.gdshader" id="2_5ofxg"]
 [ext_resource type="Texture2D" uid="uid://nh6gq7kcecp5" path="res://Assets/Characters(100x100)/Dwarf/Dwarf Sprite Sheet.png" id="3_nic03"]
 [ext_resource type="Texture2D" uid="uid://0xtjw0fyn7yt" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="4_6hb31"]
 [ext_resource type="Texture2D" uid="uid://c1vjmgtcvdvcb" path="res://Assets/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="4_nbesv"]
-[ext_resource type="Texture2D" uid="uid://b45xothe85kqc" path="res://Assets/Menu_assets/menu_background.jpg" id="5_6hb31"]
+[ext_resource type="Texture2D" uid="uid://bvf0u3rtycd7j" path="res://Assets/Menu_assets/62118b54-50e2-4d79-8502-e9c9afc7faf6.jpg" id="6_nbesv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxtyl"]
 shader = ExtResource("2_5ofxg")
@@ -261,7 +261,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_nic03"]
 resource_name = "blur"
-length = 0.3
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -291,6 +291,44 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_6hb31"),
 &"blur": SubResource("Animation_nic03")
+}
+
+[sub_resource type="Animation" id="Animation_spp5a"]
+resource_name = "background"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(320.011, 180), Vector2(360.011, 180), Vector2(320.011, 180), Vector2(280.011, 180), Vector2(320.011, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_dfoeg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320.011, 180)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihxxc"]
+_data = {
+&"RESET": SubResource("Animation_dfoeg"),
+&"background": SubResource("Animation_spp5a")
 }
 
 [node name="CharacterSelection" type="Control"]
@@ -446,11 +484,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_qxtyl")
 }
 
-[node name="MenuBackground" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(320, 180)
-scale = Vector2(0.914286, 0.886699)
-texture = ExtResource("5_6hb31")
+[node name="menu_background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(320.011, 180)
+scale = Vector2(0.791209, 0.791209)
+texture = ExtResource("6_nbesv")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ihxxc")
+}
+autoplay = "background"
+speed_scale = 0.05
 
 [connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/Human" to="." method="_on_human_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer2/dwarf" to="." method="_on_dwarf_pressed"]
