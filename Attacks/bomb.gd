@@ -51,7 +51,7 @@ func _on_bomb_explsion_time_timeout() -> void:
 	queue_free()
 	
 func animation_bomb():
-	$AnimatedSprite2D.scale=Vector2(0.3, 0.3)
+	$AnimatedSprite2D.scale=Vector2(0.1, 0.1)
 	$AnimatedSprite2D.play('bomb')
 
 func animation_explosion():
