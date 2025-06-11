@@ -2,24 +2,24 @@ extends Area2D
 #Weapon stats
 var level = 1
 var damage_multiplier = 1.25
-var attack_direction=Vector2.LEFT
+
+#Aiming stats
+var target = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
 #setting rotation to enemy
 func _ready() -> void:
 	add_to_group("Attacks")
+	rotation = target.angle()
 
-func _process(delta: float) -> void:
-	if player:
-		pass
-		
-func _update_sword_oretation():
-	var look_direction= Input.get_vector("move_left", "move_right", "move_up", "move_down")
+#moving projectiles
+func _physics_process(delta) -> void:
+	global_position += target * PlayerStats.attack_speed * delta
 
 func DealDamage():
 	return PlayerStats.damage*damage_multiplier
 
-
-func _on_timer_timeout() -> void:
+#Deleting projectiles after some time
+func _on_duration_timeout() -> void: 
 	queue_free()

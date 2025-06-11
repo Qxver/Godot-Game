@@ -15,11 +15,12 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_l4no8")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="Duration" type="Timer" parent="."]
+wait_time = 0.25
 autostart = true
 
 [node name="Spirte2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hejha")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]
+[connection signal="timeout" from="Duration" to="." method="_on_timer_timeout"]
