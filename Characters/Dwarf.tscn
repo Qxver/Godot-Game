@@ -194,10 +194,8 @@ script = ExtResource("1_jde8y")
 position = Vector2(-0.5, -10.25)
 scale = Vector2(0.84375, 0.734375)
 sprite_frames = SubResource("SpriteFrames_0odhl")
-animation = &"death"
+animation = &"hurt"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="BombTimer" type="Timer" parent="."]
 autostart = true
