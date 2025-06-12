@@ -4,13 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://ek63ydcvpjk" path="res://Assets/Sword/swing.png" id="2_hejha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4no8"]
-size = Vector2(108, 164)
+size = Vector2(24.0001, 36)
 
 [node name="Sword" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_qwkou")
 
+[node name="Spirte2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_hejha")
+flip_h = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -5)
+position = Vector2(9.65595e-06, -1.00001)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_l4no8")
@@ -18,9 +25,6 @@ shape = SubResource("RectangleShape2D_l4no8")
 [node name="Duration" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
-
-[node name="Spirte2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hejha")
 
 [connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]
 [connection signal="timeout" from="Duration" to="." method="_on_timer_timeout"]
