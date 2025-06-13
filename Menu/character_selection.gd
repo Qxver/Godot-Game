@@ -11,16 +11,22 @@ func _on_elf_pressed() -> void:
 	SoundManager.play_audio(click_sound)
 	PlayerStats.player_base_stats(1)
 	PlayerStats.character_id=1
+	MenuBackground.visible = false
 	get_tree().change_scene_to_file("res://game.tscn")
 	
 func _on_dwarf_pressed() -> void:
 	SoundManager.play_audio(click_sound)
 	PlayerStats.player_base_stats(2)
 	PlayerStats.character_id=2
+	MenuBackground.visible = false
 	get_tree().change_scene_to_file("res://game.tscn")
 
 func _on_human_pressed() -> void:
 	SoundManager.play_audio(click_sound)
 	PlayerStats.player_base_stats(3)
 	PlayerStats.character_id=3
+	MenuBackground.visible = false
 	get_tree().change_scene_to_file("res://game.tscn")
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menu/menu.tscn")

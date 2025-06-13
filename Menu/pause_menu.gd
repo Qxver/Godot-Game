@@ -34,6 +34,7 @@ func _on_options_pressed():
 func _on_main_menu_pressed():
 	resume()
 	await resume()
+	MenuBackground.visible = true
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")
 
 func _on_quit_pressed():

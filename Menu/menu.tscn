@@ -1,46 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8ur32a8cy8pf"]
+[gd_scene load_steps=8 format=3 uid="uid://b8ur32a8cy8pf"]
 
 [ext_resource type="Script" uid="uid://b5630wch0f6vd" path="res://Menu/menu.gd" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://bcmix7u0pvb58" path="res://Menu/button.gd" id="2_raj00"]
-[ext_resource type="Texture2D" uid="uid://bvf0u3rtycd7j" path="res://Assets/Menu_assets/62118b54-50e2-4d79-8502-e9c9afc7faf6.jpg" id="3_raj00"]
+[ext_resource type="Shader" uid="uid://bxxpqjajyj8u7" path="res://Menu/Title.gdshader" id="4_ofseh"]
+[ext_resource type="FontFile" uid="uid://bduq4mbrk8jny" path="res://Assets/Menu_assets/BLKCHCRY.TTF" id="5_w6voe"]
 
-[sub_resource type="Animation" id="Animation_spp5a"]
-resource_name = "background"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("menu_background:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(320.011, 180), Vector2(360.011, 180), Vector2(320.011, 180), Vector2(280.011, 180), Vector2(320.011, 180)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_ofseh"]
+font = ExtResource("5_w6voe")
+font_size = 40
+outline_size = 5
+outline_color = Color(0.711941, 0.623315, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.866667)
 
-[sub_resource type="Animation" id="Animation_dfoeg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("menu_background:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(320.011, 180)]
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eafcm"]
+shader = ExtResource("4_ofseh")
+shader_parameter/time_speed = 1.0
+shader_parameter/shine_width = 0.25
+shader_parameter/shine_strength = 1.5
+shader_parameter/base_gold = Color(1, 0.84, 0, 1)
+shader_parameter/highlight_gold = Color(1, 0.95, 0.6, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihxxc"]
-_data = {
-&"RESET": SubResource("Animation_dfoeg"),
-&"background": SubResource("Animation_spp5a")
-}
+[sub_resource type="LabelSettings" id="LabelSettings_tf6kh"]
+font = ExtResource("5_w6voe")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -62,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -35.0
-offset_top = -68.0001
+offset_top = -61.0001
 offset_right = 35.0
-offset_bottom = 68.0001
+offset_bottom = 75.0001
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -89,18 +75,38 @@ text = "Credits
 layout_mode = 2
 text = "Exit"
 
-[node name="menu_background" type="Sprite2D" parent="."]
-z_index = -5
-position = Vector2(320.011, 180)
-scale = Vector2(0.791209, 0.791209)
-texture = ExtResource("3_raj00")
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.5
+offset_top = -134.5
+offset_right = 174.5
+offset_bottom = -89.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GROVE HEROES"
+label_settings = SubResource("LabelSettings_ofseh")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ihxxc")
-}
-autoplay = "background"
-speed_scale = 0.05
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_eafcm")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -135.5
+offset_right = 173.5
+offset_bottom = -90.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GROVE HEROES"
+label_settings = SubResource("LabelSettings_tf6kh")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Shop" to="." method="_on_shop_pressed"]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SoundManager="*res://SoundManager.tscn"
 PlayerStats="*res://player_stats.gd"
+MenuBackground="*res://Menu/menu_background.tscn"
 
 [display]
 
