@@ -13,30 +13,21 @@ var BombAmmo = 0
 var BombBaseAmmo=1
 
 func attack():
-	print("atak")
 	BombTimer.wait_time=BombReloadSpeed
-	print(BombReloadSpeed)
 	if BombTimer.is_stopped():
 		BombTimer.start()
 	
 
 func _on_bomb_timer_timeout() -> void:
-	print("bomb timeout")
 	BombAmmo=BombBaseAmmo
-	BombAttackTimer.wait_time=1
+	BombAttackTimer.wait_time=(BombSpeed*(100-PlayerStats.reload_reduction))/(PlayerStats.attack_speed)
 	BombAttackTimer.start()
-	if not BombAttackTimer.is_stopped():
-		print("bobmatak timoit start")
-	BombTimer.wait_time=BombSpeed * PlayerStats.reload_reduction
 	
 func _on_bomb_attack_timer_timeout() -> void:
-	print("bomba atak timeout")
-	print(BombAttackTimer.wait_time)
 	if BombAmmo >0:
 		var BombAttack= bomb.instantiate()
 		BombAttack.target=player_ref.GetClosestTarget()
 		add_child(BombAttack)
-		print("BOMBA")
 		BombAttack.global_position = player_ref.global_position
 		BombAmmo-=1
 		if BombAmmo > 0:

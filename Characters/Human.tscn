@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b204q7x5d6g6"]
+[gd_scene load_steps=25 format=3 uid="uid://b204q7x5d6g6"]
 
 [ext_resource type="Script" uid="uid://cqd1vfqx6gwsc" path="res://Characters/human.gd" id="1_06a34"]
 [ext_resource type="Texture2D" uid="uid://b1osh274n0hy0" path="res://Assets/Characters(100x100)/Human/Adventure_Character_Simple.png" id="2_y1aim"]
@@ -30,10 +30,6 @@ region = Rect2(240, 912, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_leaf1"]
 atlas = ExtResource("2_y1aim")
 region = Rect2(288, 912, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_al5xx"]
-atlas = ExtResource("2_y1aim")
-region = Rect2(144, 864, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwcfw"]
 atlas = ExtResource("2_y1aim")
@@ -115,14 +111,11 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_leaf1")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_al5xx")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pwcfw")
 }, {
@@ -184,11 +177,16 @@ animations = [{
 script = ExtResource("1_06a34")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_l4cmt")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="SwordTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="SwordAttackTimer" type="Timer" parent="SwordTimer"]
+wait_time = 0.25
+
 [connection signal="timeout" from="SwordTimer" to="." method="_on_sword_timer_timeout"]
+[connection signal="timeout" from="SwordTimer/SwordAttackTimer" to="." method="_on_sword_attack_timer_timeout"]
