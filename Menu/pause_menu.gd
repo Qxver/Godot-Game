@@ -32,12 +32,14 @@ func _on_options_pressed():
 	get_tree().change_scene_to_file("res://Menu/options_menu.tscn")
 
 func _on_main_menu_pressed():
+	PlayerStats.save_game(PlayerStats.coins)
 	resume()
 	await resume()
 	MenuBackground.visible = true
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")
 
 func _on_quit_pressed():
+	PlayerStats.save_game(PlayerStats.coins)
 	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 

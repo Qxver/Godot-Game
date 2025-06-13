@@ -1,5 +1,7 @@
 extends Node
 
+const save_path = "res://save_data.json" # save game path
+
 var damage: int
 var max_hp: int
 var health: int
@@ -11,7 +13,7 @@ var character_id: int = 0
 
 var inventory: Array[InvItems]
 var equiped_items: Array[InvItems]
-var coins = 0
+var coins: int = 0
 
 var xp_multiplayer: int
 var dmg_multiplayer: float
@@ -27,7 +29,7 @@ func item_effect(item: InvItems,operation: int):
 		if operation == 1:
 			defence -= item.defence
 			damage_reduction= 1 - (defence / 100)
-			equiped_items.append(item)
+			equiped_items.erase(item)
 		elif operation == 2:
 			defence += item.defence
 			damage_reduction= 1 - (defence / 100)
@@ -38,7 +40,7 @@ func item_effect(item: InvItems,operation: int):
 			hp_multiplayer -= item.hp
 			ats_multiplayer -= item.ats
 			xp_multiplayer -= item.xp
-			equiped_items.append(item)
+			equiped_items.erase(item)
 		elif operation == 2:
 			dmg_multiplayer += item.attack
 			hp_multiplayer += item.hp
@@ -74,3 +76,34 @@ func player_base_stats(x: int):
 			health = 125
 			max_hp = 125
 			base_hp = 125
+			
+func save_game(coins: int) -> void:
+	inventory+=equiped_items
+	equiped_items.clear()
+	var items = []
+	for item in inventory:
+		items.append(item.resource_path)
+	var save_data = {
+		"coins": coins,
+		"items": items
+	}
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify((save_data)))
+	file.close()
+	
+func load_game():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		var data = file.get_as_text()
+		file.close()
+		var parsed_json = JSON.parse_string(data)
+		var loaded_inv_paths = []
+		if typeof(parsed_json) == TYPE_DICTIONARY:
+			coins = parsed_json.get("coins", 0)
+			loaded_inv_paths = parsed_json.get("items", [])
+			inventory.clear()
+			for item_path in loaded_inv_paths:
+				if typeof(item_path) == TYPE_STRING and item_path.begins_with("res://"):
+					var loaded_item_resource = load(item_path)
+					if loaded_item_resource is InvItems:
+						inventory.append(loaded_item_resource)

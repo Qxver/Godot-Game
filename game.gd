@@ -2,8 +2,6 @@ extends Node2D
 
 @onready var player = get_node("Player")
 
-var coins: int = 0
-const save_path = "res://save_data.json" # save game path
 var item_scene = preload("res://Item.tscn")
 var decorations = [
 	preload("res://Assets/Terrain/bushes/Bush_blue_flowers2.png"),
@@ -75,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			
 			
 func _ready() -> void:
-	load_game() # load game stats on start
+	PlayerStats.load_game()
 	print(SoundManager.Soundtrack2Progress)
 	SoundManager.play_soundtrack2() # soundtrack
 	
@@ -93,7 +91,7 @@ func _process(delta):
 	spawn_decorations_near_player()
 	
 func coin_label():
-	%CoinLabel.text = str(coins)
+	%CoinLabel.text = str(PlayerStats.coins)
 	
 #Game over screen
 func _on_player_health_depleted() -> void:
@@ -106,9 +104,7 @@ func _on_player_levelup() -> void:
 # update coin value
 func _on_coin_collected() -> void:
 	PlayerStats.coins += 1
-	coins += 1
 	coin_label()
-	save_game(coins)
 
 #generating trees and bushes around the player
 func spawn_decorations_near_player():
@@ -133,35 +129,3 @@ func spawn_decorations_near_player():
 			decoration.z_index = -1
 			add_child(decoration)
 			placed_positions.append(spawn_position)
-
-# auto save to file
-func save_game(coins: int) -> void:
-	PlayerStats.inventory+=PlayerStats.equiped_items
-	PlayerStats.equiped_items.clear()
-	var items = []
-	for item in PlayerStats.inventory:
-		items.append(item.resource_path)
-	var save_data = {
-		"coins": coins,
-		"items": items
-	}
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_string(JSON.stringify((save_data)))
-	file.close()
-	
-func load_game():
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		var data = file.get_as_text()
-		file.close()
-		var parsed_json = JSON.parse_string(data)
-		var loaded_inv_paths = []
-		if typeof(parsed_json) == TYPE_DICTIONARY:
-			coins = parsed_json.get("coins", 0)
-			loaded_inv_paths = parsed_json.get("items", [])
-			PlayerStats.inventory.clear()
-			for item_path in loaded_inv_paths:
-				if typeof(item_path) == TYPE_STRING and item_path.begins_with("res://"):
-					var loaded_item_resource = load(item_path)
-					if loaded_item_resource is InvItems:
-						PlayerStats.inventory.append(loaded_item_resource)
