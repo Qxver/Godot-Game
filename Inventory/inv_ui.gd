@@ -3,7 +3,6 @@ extends Control
 @onready var slots : Array =  $NinePatchRect/Inv/InvContainer.get_children()
 
 func _ready():
-	PlayerStats.inventory=[preload("res://Inventory/Items/Armour/boots2.tres"),preload("res://Inventory/Items/Armour/chestplate1.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Armour/leggings1.tres"),preload("res://Inventory/Items/Armour/helmet2.tres"),preload("res://Inventory/Items/Armour/chestplate3.tres")]
 	hide()
 
 func update_slots():
@@ -42,7 +41,6 @@ func resume():
 	hide()
  
 func pause():
-	PlayerStats.inventory+=[preload("res://Inventory/Items/Accessories/amethyst_belt.tres"),preload("res://Inventory/Items/Accessories/emerald_ring.tres"),preload("res://Inventory/Items/Armour/chestplate4.tres"),preload("res://Inventory/Items/Accessories/sapphire_belt.tres")]
 	update_slots()
 	show()
 	get_tree().paused = true

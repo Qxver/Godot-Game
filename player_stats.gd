@@ -10,6 +10,7 @@ var reload_reduction = 0.0 #in percentages 0-0% 90-90%
 var character_id: int = 0
 
 var inventory: Array[InvItems]
+var equiped_items: Array[InvItems]
 var coins = 0
 
 var xp_multiplayer: int
@@ -26,20 +27,24 @@ func item_effect(item: InvItems,operation: int):
 		if operation == 1:
 			defence -= item.defence
 			damage_reduction= 1 - (defence / 100)
+			equiped_items.append(item)
 		elif operation == 2:
 			defence += item.defence
 			damage_reduction= 1 - (defence / 100)
+			equiped_items.append(item)
 	else:
 		if operation == 1:
 			dmg_multiplayer -= item.attack
 			hp_multiplayer -= item.hp
 			ats_multiplayer -= item.ats
 			xp_multiplayer -= item.xp
+			equiped_items.append(item)
 		elif operation == 2:
 			dmg_multiplayer += item.attack
 			hp_multiplayer += item.hp
 			ats_multiplayer += item.ats
 			xp_multiplayer += item.xp
+			equiped_items.append(item)
 			update_stats()
 			
 

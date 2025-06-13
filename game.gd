@@ -136,8 +136,14 @@ func spawn_decorations_near_player():
 
 # auto save to file
 func save_game(coins: int) -> void:
+	PlayerStats.inventory+=PlayerStats.equiped_items
+	PlayerStats.equiped_items.clear()
+	var items = []
+	for item in PlayerStats.inventory:
+		items.append(item.resource_path)
 	var save_data = {
-		"coins": coins
+		"coins": coins,
+		"items": items
 	}
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_string(JSON.stringify((save_data)))
@@ -147,6 +153,15 @@ func load_game():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		var data = file.get_as_text()
-		var json = JSON.parse_string(data)
-		if typeof(json) == TYPE_DICTIONARY:
-			coins = json.get("coins", 0)
+		file.close()
+		var parsed_json = JSON.parse_string(data)
+		var loaded_inv_paths = []
+		if typeof(parsed_json) == TYPE_DICTIONARY:
+			coins = parsed_json.get("coins", 0)
+			loaded_inv_paths = parsed_json.get("items", [])
+			PlayerStats.inventory.clear()
+			for item_path in loaded_inv_paths:
+				if typeof(item_path) == TYPE_STRING and item_path.begins_with("res://"):
+					var loaded_item_resource = load(item_path)
+					if loaded_item_resource is InvItems:
+						PlayerStats.inventory.append(loaded_item_resource)

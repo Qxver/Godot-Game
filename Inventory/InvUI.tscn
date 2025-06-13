@@ -509,12 +509,4 @@ layout_mode = 2
 [node name="inv_slot30" parent="NinePatchRect/Inv/InvContainer" instance=ExtResource("7_35ghd")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 443.0
-offset_top = 259.0
-offset_right = 502.0
-offset_bottom = 283.0
-text = "Sell"
-
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

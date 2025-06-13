@@ -13,7 +13,7 @@ func _on_shop_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	await get_tree().change_scene_to_file("res://Menu/options_menu.tscn")
+	get_tree().change_scene_to_file("res://Menu/options_menu.tscn")
 
 
 func _on_exit_pressed() -> void:

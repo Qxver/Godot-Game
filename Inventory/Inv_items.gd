@@ -12,6 +12,4 @@ enum ItemType {MISC = 0,helmet = 1,chestplate = 2,leggings = 3,boots = 4,necklac
 @export var hp: float
 @export var xp: int
 @export var ats: float
-@export var buy_price: int
-var sell_price: int = 100
 @export var rarity: int
