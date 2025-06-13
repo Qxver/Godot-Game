@@ -43,6 +43,7 @@ func resume():
 func pause():
 	update_slots()
 	show()
+	$AnimationPlayer.play("new_animation")
 	get_tree().paused = true
 
 func testInv():
