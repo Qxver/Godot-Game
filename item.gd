@@ -65,7 +65,7 @@ func _ready() -> void:
 		$Sprite2D.region_enabled = false
 		if item_type == 6: # jewelry
 			$Sprite2D.scale = Vector2(0.6, 0.6)
-			$Sprite2D.texture = item_pool[item_type][accessory_type]
+			$Sprite2D.texture = item_pool[item_type][accessory_type].texture
 		else: # armour
 			$Sprite2D.scale = Vector2(0.06, 0.06)
 			$Sprite2D.texture = item_pool[item_type][armour_type].texture
